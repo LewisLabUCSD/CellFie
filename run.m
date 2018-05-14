@@ -89,17 +89,29 @@ order3 = optimalleaforder(Z3, D3);
 
 score_bin_cluster = score_binary(order2,order3);
 
-figure(2)
+% figure(2)
+% imagesc(score_bin_cluster)
+% ax=gca;
+% ax.YTick=1:length(taskInfos(:,2));
+% ax.YTickLabel=taskInfos(order2,2);
+% % ax.YTickLabelRotation=90;
+
+% ax.XTick=1:length(colnames);
+% ax.XTickLabel=colnames(order3);
+% colorbar
+% saveas(figure(2),'Analysis/Figures/score_bin_heatmap.png')
+
+figure('units','normalized','outerposition',[0 0 1 1])
 imagesc(score_bin_cluster)
 ax=gca;
 ax.YTick=1:length(taskInfos(:,2));
 ax.YTickLabel=taskInfos(order2,2);
-% ax.YTickLabelRotation=90;
-
+ax.YTickLabelRotation=45;
 ax.XTick=1:length(colnames);
 ax.XTickLabel=colnames(order3);
 colorbar
-saveas(figure(2),'Analysis/Figures/score_bin_heatmap.png')
+fig=gcf;
+saveas(figure(fig.Number),'Analysis/Figures/score_bin_heatmap.png')
 
 figure(3)
 dendrogram(Z3)
