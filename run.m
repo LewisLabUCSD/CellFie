@@ -36,10 +36,12 @@ rownames=taskInfos(:,2)
 colnames=1:SampleNumber
 score_long=wide2long(score,rownames,colnames)
 
-
+fname='Analysis/Output/'
 save 'Analysis/Output/score.mat' score
-%xlswrite('Analysis/Output/score.xlsx',score)
-%csvwrite('Analysis/Output/score.csv',score)
+tab=table(taskInfos,score)
+writetable(tab,fullfile(fname, 'score.csv'))
+%xlswrite(fullfile(fname, 'score.xls'),score)
+%csvwrite(fullfile(fname, 'score.csv'),[taskInfos score])
 %csvwrite('Analysis/Output/score.long.csv',score_long,{'Sample','Task','Value'})
 
 D2 = pdist(score);
@@ -73,7 +75,10 @@ saveas(figure(3),'Analysis/Figures/score_dendro.png')
     %'RowPDist', RowPDistValue, 'ColumnPDist', ColumnPDistValue)
 %saveas(figure(4),'Analysis/Figures/score_clustergram.png')
 
+fname='Analysis/Output/'
 save 'Analysis/Output/score_binary.mat' score_binary
+tab=table(taskInfos,score_binary)
+writetable(tab,fullfile(fname, 'score_binary.csv'))
 
 D2 = pdist(score_binary);
 Z2 = linkage(D2,'average');
@@ -111,5 +116,6 @@ saveas(figure(3),'Analysis/Figures/score_bin_dendro.png')
 %csvwrite('Analysis/Output/score_binary.csv',score_binary)
 %csvwrite('Analysis/Output/score_binary.long.csv',wide2long(score_binary,rownames,colnames),{'Sample','Task','Value'})
 save 'Analysis/Output/taskInfos.mat' taskInfos
-%xlswrite('Analysis/Output/taskInfos.xlsx',taskInfos)
-%csvwrite('Analysis/Output/taskInfos.csv',taskInfos)
+fname='Analysis/Output/'
+tab=table(taskInfos)
+writetable(tab,fullfile(fname, 'taskInfos.csv'))
