@@ -229,15 +229,9 @@ for i=1:210
            	signValue=significance(rxnID,:);
             % if no gene is associated with one of the reaction -
           	% remove the reactions from the count
-            missing=find(sum(expValue,2)==-SampleNumber);
-            if ~isempty(missing)
-                if length(missing)>(length(rxnID)-2)
-                    expValue=[];
-                    signValue=[];
-                else
-                	signValue(missing,:)=[];
-                	expValue(missing,:)=[];
-                end
+            if ~isempty(find(sum(expValue,2)==-SampleNumber))
+                signValue(find(sum(expValue,2)==-SampleNumber),:)=[];
+                expValue(find(sum(expValue,2)==-SampleNumber),:)=[];
             end
            	if ~isempty(expValue)
             	if size(expValue,1)>1
