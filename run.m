@@ -104,9 +104,9 @@ score_bin_cluster = score_binary(order2,order3);
 figure('units','normalized','outerposition',[0 0 1 1])
 imagesc(score_bin_cluster)
 ax=gca;
-ax.YTick=1:length(taskInfos(:,2));
-ax.YTickLabel=taskInfos(order2,2);
-ax.YTickLabelRotation=45;
+% ax.YTick=1:length(taskInfos(:,2));
+% ax.YTickLabel=taskInfos(order2,2);
+% ax.YTickLabelRotation=45;
 ax.XTick=1:length(colnames);
 ax.XTickLabel=colnames(order3);
 colorbar
