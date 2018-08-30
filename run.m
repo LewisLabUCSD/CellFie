@@ -44,6 +44,10 @@ writetable(tab,fullfile(fname, 'score.csv'))
 %csvwrite(fullfile(fname, 'score.csv'),[taskInfos score])
 %csvwrite('Analysis/Output/score.long.csv',score_long,{'Sample','Task','Value'})
 
+% write names if present
+tableNames = dataAll.Properties.VariableNames
+writetable(tab,fullfile(fname, 'annotation.csv'))
+
 D2 = pdist(score);
 Z2 = linkage(D2,'average');
 order2 = optimalleaforder(Z2, D2);
@@ -131,3 +135,6 @@ save 'Analysis/Output/taskInfos.mat' taskInfos
 fname='Analysis/Output/'
 tab=table(taskInfos)
 writetable(tab,fullfile(fname, 'taskInfos.csv'))
+
+exit
+exit
