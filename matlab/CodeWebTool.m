@@ -75,6 +75,12 @@ if size(data.value,1) ~= length(data.gene)
     error('data.value does not have the same number of rows as data.gene')
 end
 
+% If there are negative values, shift positive
+if any(any(data.value <= 0))
+    warning('there are negative expression values, adding mininmum + 1e-2 to all values')
+    data.value = data.value + abs(min(min(data.value))) + 1e-2;
+end
+
 % get the threshold value and the histogram for the complete dataset and
 % print a figure
 if SampleNumber>1
