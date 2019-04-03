@@ -18,9 +18,9 @@ function ignoredFiles = getIgnoredFiles(ignorepatterns, filterpatterns)
 %          - Move to function: Thomas Pfau, Jan 2018
 
 
-global PACERDIR
+global CELLFIEDIR
 
-fid = fopen([PACERDIR filesep '.gitignore']);
+fid = fopen([CELLFIEDIR filesep '.gitignore']);
 emptyAndCommentLines = {'^#','^$'};
 if ~exist('ignorepatterns','var')
     ignorepatterns = emptyAndCommentLines;
