@@ -1,2 +1,2 @@
 CELLFIEDIR = fileparts(mfilename('fullpath'));
-addpath(genpath(CELLFIEDIR);
+addpath(genpath(CELLFIEDIR));
