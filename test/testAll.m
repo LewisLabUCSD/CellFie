@@ -26,11 +26,16 @@ end
 origDir = pwd;
 
 % if the location of pacer is not yet known
-% move back to the root of the repository
-cd([fileparts(which('testAll.m')) filesep '..'])
+if isempty(which('initCellFie.m'))
+   % move back to the root of the repository
+   cd([fileparts(which('testAll.m')) filesep '..'])
 
-% assign the path
-CELLFIEDIR = pwd;
+   % assign the path
+   CELLFIEDIR = pwd;
+else
+   CELLFIEDIR = fileparts(which('initCellFie.m'));
+   cd(CELLFIEDIR);
+end
 
 % include the root folder and all subfolders.
 addpath(genpath([pwd filesep 'test']));
@@ -44,6 +49,8 @@ if launchTestSuite
     else
         COVERAGE = false;
     end
+
+    initCellFie;
 
     % change to the test folder
     currentDir = cd([CELLFIEDIR filesep 'test']);
