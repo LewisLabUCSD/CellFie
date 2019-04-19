@@ -1,10 +1,7 @@
 % load the different environment variables
 global refDataPath
 global inputDataPath
-global PACERDIR
-
-refDataPath = [getenv('PACER_DATA_PATH') filesep 'ref'];
-inputDataPath = [getenv('PACER_DATA_PATH') filesep 'input'];
+global CELLFIEDIR
 
 % request explicitly from the user to launch test suite locally
 if isempty(strfind(getenv('HOME'), 'jenkins'))
@@ -29,16 +26,11 @@ end
 origDir = pwd;
 
 % if the location of pacer is not yet known
-if isempty(which('SETUP_PACER.m'))
-   % move back to the root of the repository
-   cd([fileparts(which('testAll.m')) filesep '..'])
+% move back to the root of the repository
+cd([fileparts(which('testAll.m')) filesep '..'])
 
-   % assign the path
-   PACERDIR = pwd;
-else
-   PACERDIR = fileparts(which('SETUP_PACER.m'));
-   cd(PACERDIR);
-end
+% assign the path
+CELLFIEDIR = pwd;
 
 % include the root folder and all subfolders.
 addpath(genpath([pwd filesep 'test']));
@@ -53,10 +45,8 @@ if launchTestSuite
         COVERAGE = false;
     end
 
-    SETUP_PACER
-
     % change to the test folder
-    currentDir = cd([PACERDIR filesep 'test']);
+    currentDir = cd([CELLFIEDIR filesep 'test']);
     testDirContent = getFilesInDir('type', 'all');  % Get all currently present files in the folder.
     testDirPath = pwd;
     cd(currentDir);
@@ -129,7 +119,7 @@ if launchTestSuite
 
         % set the new badge
         if ~isempty(strfind(getenv('HOME'), 'jenkins'))
-            coverageBadgePath = [getenv('ARTENOLIS_DATA_PATH') filesep 'PaCER' filesep 'codegrade' filesep];
+            coverageBadgePath = [getenv('ARTENOLIS_DATA_PATH') filesep 'CellFie' filesep 'codegrade' filesep];
             system(['cp ' coverageBadgePath 'codegrade-', grade, '.svg '  coverageBadgePath 'codegrade.svg']);
         end
     end
