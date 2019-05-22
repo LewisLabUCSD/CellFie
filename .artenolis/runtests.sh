@@ -6,10 +6,12 @@ if [ "$ARCH" == "Linux" ]; then
     export CURRENTDIR=`pwd`
 
     # update the COBRA Toolbox
-    cd $ARTENOLIS_DATA_PATH/scratch/cobratoolbox
+    cd $ARTENOLIS_DATA_PATH/repos/cobratoolbox
     git pull origin master
 
-    cd CURRENTDIR
+    # change to the current directory
+    echo $CURRENTDIR
+    cd $CURRENTDIR
 
     # launch the test suite
     $ARTENOLIS_SOFT_PATH/MATLAB/$MATLAB_VER/bin/./matlab -nodesktop -nosplash < test/testAll.m
