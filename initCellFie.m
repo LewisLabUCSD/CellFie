@@ -2,7 +2,7 @@
 CELLFIEDIR = fileparts(mfilename('fullpath'));
 
 % initialize the COBRA Toolbox
-if isdefined('CBTDIR')
+if exist('CBTDIR', 'var')
     cd(CBTDIR);
     initCobraToolbox
 else
