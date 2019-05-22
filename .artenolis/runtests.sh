@@ -3,7 +3,7 @@
 # launch MATLAB
 if [ "$ARCH" == "Linux" ]; then
 
-    export CURRENTDIR=`pwd`
+    CURRENTDIR=$(pwd)
 
     # update the COBRA Toolbox
     cd $ARTENOLIS_DATA_PATH/repos/cobratoolbox
