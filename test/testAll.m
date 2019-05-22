@@ -2,6 +2,7 @@
 global refDataPath
 global inputDataPath
 global CELLFIEDIR
+global CBTDIR
 
 % request explicitly from the user to launch test suite locally
 if isempty(strfind(getenv('HOME'), 'jenkins'))
@@ -24,6 +25,11 @@ end
 
 % save the current folder
 origDir = pwd;
+
+% set the path to the COBRA Toolbox
+if ~isempty(strfind(getenv('HOME'), 'jenkins'))
+    CBTDIR = [getenv('ARTENOLIS_DATA_PATH') filesep 'repos' filesep 'cobratoolbox'];
+end
 
 % if the location of pacer is not yet known
 if isempty(which('initCellFie.m'))
