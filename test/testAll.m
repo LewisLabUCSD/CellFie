@@ -21,15 +21,11 @@ else
    % the current version
    restoredefaultpath()
    launchTestSuite = true;
+   CBTDIR = [getenv('ARTENOLIS_DATA_PATH') filesep 'repos' filesep 'cobratoolbox'];
 end
 
 % save the current folder
 origDir = pwd;
-
-% set the path to the COBRA Toolbox
-if ~isempty(strfind(getenv('HOME'), 'jenkins'))
-    CBTDIR = [getenv('ARTENOLIS_DATA_PATH') filesep 'repos' filesep 'cobratoolbox'];
-end
 
 % if the location of pacer is not yet known
 if isempty(which('initCellFie.m'))
@@ -54,6 +50,7 @@ if launchTestSuite
         fprintf('MoCov and JsonLab are on path, coverage will be computed.\n')
     else
         COVERAGE = false;
+        fprintf('MoCov and JsonLab are not on path, coverage will *not* be computed.\n')
     end
 
     initCellFie;
