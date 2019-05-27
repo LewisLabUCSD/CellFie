@@ -24,6 +24,12 @@ function [results, resultTable] = runTestSuite(testNames)
 %
 % Author:
 %    - Thomas Pfau Jan 2018.
+%
+% NOTE:
+%    this function has been adapted from
+%    https://github.com/opencobra/cobratoolbox/blob/master/test/runTestSuite.m
+%    [5395578]
+
 
 global CELLFIEDIR
 
