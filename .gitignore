@@ -1,3 +1,5 @@
+coverage.json
+coverage_html
 *.asv
 *.m~
 *.mex*

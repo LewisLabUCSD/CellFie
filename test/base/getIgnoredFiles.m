@@ -21,7 +21,6 @@ function ignoredFiles = getIgnoredFiles(ignorepatterns, filterpatterns)
 %    https://github.com/opencobra/cobratoolbox/blob/master/src/base/install/getIgnoredFiles.m
 %    [f9a9213]
 
-
 global CELLFIEDIR
 
 fid = fopen([CELLFIEDIR filesep '.gitignore']);

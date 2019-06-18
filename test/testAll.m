@@ -1,10 +1,8 @@
 % load the different environment variables
 global refDataPath
 global inputDataPath
-global PACERDIR
-
-refDataPath = [getenv('PACER_DATA_PATH') filesep 'ref'];
-inputDataPath = [getenv('PACER_DATA_PATH') filesep 'input'];
+global CELLFIEDIR
+global CBTDIR
 
 % request explicitly from the user to launch test suite locally
 if isempty(strfind(getenv('HOME'), 'jenkins'))
@@ -23,21 +21,22 @@ else
    % the current version
    restoredefaultpath()
    launchTestSuite = true;
+   CBTDIR = [getenv('ARTENOLIS_DATA_PATH') filesep 'repos' filesep 'cobratoolbox'];
 end
 
 % save the current folder
 origDir = pwd;
 
 % if the location of pacer is not yet known
-if isempty(which('SETUP_PACER.m'))
+if isempty(which('initCellFie.m'))
    % move back to the root of the repository
    cd([fileparts(which('testAll.m')) filesep '..'])
 
    % assign the path
-   PACERDIR = pwd;
+   CELLFIEDIR = pwd;
 else
-   PACERDIR = fileparts(which('SETUP_PACER.m'));
-   cd(PACERDIR);
+   CELLFIEDIR = fileparts(which('initCellFie.m'));
+   cd(CELLFIEDIR);
 end
 
 % include the root folder and all subfolders.
@@ -51,12 +50,13 @@ if launchTestSuite
         fprintf('MoCov and JsonLab are on path, coverage will be computed.\n')
     else
         COVERAGE = false;
+        fprintf('MoCov and JsonLab are not on path, coverage will *not* be computed.\n')
     end
 
-    SETUP_PACER
+    initCellFie;
 
     % change to the test folder
-    currentDir = cd([PACERDIR filesep 'test']);
+    currentDir = cd([CELLFIEDIR filesep 'test']);
     testDirContent = getFilesInDir('type', 'all');  % Get all currently present files in the folder.
     testDirPath = pwd;
     cd(currentDir);
@@ -129,7 +129,7 @@ if launchTestSuite
 
         % set the new badge
         if ~isempty(strfind(getenv('HOME'), 'jenkins'))
-            coverageBadgePath = [getenv('ARTENOLIS_DATA_PATH') filesep 'PaCER' filesep 'codegrade' filesep];
+            coverageBadgePath = [getenv('ARTENOLIS_DATA_PATH') filesep 'CellFie' filesep 'codegrade' filesep];
             system(['cp ' coverageBadgePath 'codegrade-', grade, '.svg '  coverageBadgePath 'codegrade.svg']);
         end
     end

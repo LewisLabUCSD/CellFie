@@ -16,8 +16,8 @@ function[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumbe
 %   param.ThreshType            Type of thresholding approach used
 %                               (i.e.,'global' or 'local') (default - local)
 % related to the use of a GLOBAL thresholding approach - the threshold value is the same for all the genes
-%   param.percentile_or_value   the threshold can be defined using a value introduced by the user ('value') 
-%                               or based on a percentile of the distribution of expression value for all the 
+%   param.percentile_or_value   the threshold can be defined using a value introduced by the user ('value')
+%                               or based on a percentile of the distribution of expression value for all the
 %                               genes and across all samples of your
 %                               dataset ('percentile')
 %   param.percentile            percentile from the distribution of
@@ -27,16 +27,16 @@ function[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumbe
 %                               considered as active or not (e.g., 5)
 %
 % related to the use of a LOCAL thresholding approach - the threshold value is different for all the genes
-%   param.percentile_or_value   the threshold can be defined using a value introduced by the user ('value') 
-%                               or based on a percentile of the distribution of expression value for all the 
+%   param.percentile_or_value   the threshold can be defined using a value introduced by the user ('value')
+%                               or based on a percentile of the distribution of expression value for all the
 %                               genes and across all samples of your
 %                               dataset ('percentile'-default)
 %   param.LocalThresholdType    option to define the type of local thresholding approach to use
-%                               - 'minmaxmean' (default options )- the threshold for a gene is determined by the mean of expression 
-%                                  values observed for that gene among all the samples, tissues, or conditions BUT 
+%                               - 'minmaxmean' (default options )- the threshold for a gene is determined by the mean of expression
+%                                  values observed for that gene among all the samples, tissues, or conditions BUT
 %                                   the threshold :(i) must be higher or equal to a lower bound and (ii) must be lower
-%                                   or equal to an upper bound. 
-%                               - 'mean' -the threshold for a gene is defined as the mean expression value 
+%                                   or equal to an upper bound.
+%                               - 'mean' -the threshold for a gene is defined as the mean expression value
 %                                  of this gene across all the samples, tissues, or conditions
 %   param.percentile_low        lower percentile used to define which gene
 %                               are always inactive in the case of use 'MinMaxMean' local thresholding
@@ -55,7 +55,7 @@ function[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumbe
 %   param.minSum:               instead of using min and max, use min for AND and Sum
 %                               for OR (default: false, i.e. use min)
 % OUTPUTS:
-%   score                       relative quantification of the activity of a metabolic task in a specific condition 
+%   score                       relative quantification of the activity of a metabolic task in a specific condition
 %                               based on the availability of data for multiple conditions
 %   score_binary                binary version of the metabolic task score
 %                               to determine whether a task is active or inactive in specific
@@ -69,10 +69,10 @@ function[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumbe
 %       5th column = essential reaction associated to this task
 %       6th column = expression score associated  to the reaction listed in the 5th column
 %       7th column = gene used to determine the expression of the reaction listed in the 5th column
-%       8th column = original expression value of the gene listed in the 7th column 
+%       8th column = original expression value of the gene listed in the 7th column
 %
 % .. Authors:
-%       - Anne Richelle, January 2019 
+%       - Anne Richelle, January 2019
 if size(data.value,2) ~= SampleNumber
     error('The number of samples defined is not the same as the size of the dataset')
 end
@@ -150,7 +150,7 @@ end
 linData(linData==0)=[];
 
 % definition of the thresholds
-if strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'percentile') 
+if strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'percentile')
     display('RUN - global: percentile')
     figure(1);hist(log10(linData),50)
     l_global = (prctile(log10(linData),param.percentile));
@@ -159,7 +159,7 @@ if strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'percen
     legend(h_global,{[num2str(param.percentile),'th percentile = ',num2str(data.ths)]},'FontSize',14)
     xlabel('log10(expressionValue)','FontSize',14)
     ylabel('Genes','FontSize',14)
-elseif strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'value') 
+elseif strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'value')
     display('RUN - global: value')
     figure(1);hist(log10(linData),50)
     data.ths=param.value;
@@ -167,12 +167,12 @@ elseif strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'va
     legend(h_global,{'global threshold'},'FontSize',14)
     xlabel('log10(expressionValue)','FontSize',14)
     ylabel('Genes','FontSize',14)
-elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'mean') 
+elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'mean')
     display('RUN - local: mean')
     figure(1);hist(log10(linData),50)
     xlabel('log10(expressionValue)','FontSize',14)
     ylabel('Genes','FontSize',14)
-elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'percentile') 
+elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'percentile')
     display('RUN - local: minmaxmean: percentile')
     figure(1);hist(log10(linData),50)
     l_high = (prctile(log10(linData),param.percentile_high));
@@ -185,7 +185,7 @@ elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minm
     xlabel('log10(expressionValue)','FontSize',14)
     ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'value')
-    display('RUN - local: minmaxmean: value') 
+    display('RUN - local: minmaxmean: value')
     figure(1);hist(log10(linData),50)
     data.ths_high=param.value_high;
     data.ths_low=param.value_low;
@@ -211,7 +211,7 @@ switch param.ThreshType
             threshold=mean(data.value,2)';
         else
             threshold=[];
-            for i=1:length(data.gene) 
+            for i=1:length(data.gene)
             	expressionValue=data.value(i,:);
                	if  mean(expressionValue)>=data.ths_high
                 	threshold(i)=data.ths_high;
@@ -298,11 +298,11 @@ for i=1:size(taskInfos,1)
             else
             	ScorebyTask(i,:)=-1.*ones(1,SampleNumber);
                 ScorebyTask_binary(i,:)=-1.*ones(1,SampleNumber);
-           	end 
+           	end
         else
         	ScorebyTask(i,:)=-1.*ones(1,SampleNumber);
             ScorebyTask_binary(i,:)=-1.*ones(1,SampleNumber);
-    	end 
+    	end
     else
         ScorebyTask(i,:)=-1.*ones(1,SampleNumber);
         ScorebyTask_binary(i,:)=-1.*ones(1,SampleNumber);
@@ -338,10 +338,10 @@ for j=1:SampleNumber
                     geneName=expression.gene_used(rxnID(k),SampleNumber);
                     detailScoring{incR,((j-1)*8)+7}=geneName;
                     %8th column = original expression value of the gene
-                    %listed in the 7th column  
+                    %listed in the 7th column
                     detailScoring{incR,((j-1)*8)+8}=data.value(strcmp(data.gene,geneName),SampleNumber);
                     incR=incR+1;
-            end 
+            end
        end
     end
 end
