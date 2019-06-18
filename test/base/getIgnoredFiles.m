@@ -16,13 +16,10 @@ function ignoredFiles = getIgnoredFiles(ignorepatterns, filterpatterns)
 %
 % .. Authors: - Original Code: Laurent Heirendt
 %          - Move to function: Thomas Pfau, Jan 2018
-%
 % NOTE:
 %    this function has been adapted from
 %    https://github.com/opencobra/cobratoolbox/blob/master/src/base/install/getIgnoredFiles.m
 %    [f9a9213]
-
-
 
 global CELLFIEDIR
 

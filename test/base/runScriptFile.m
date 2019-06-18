@@ -1,7 +1,7 @@
 function result = runScriptFile(fileName)
 % This function runs the test in fileName
 % It can distinguish between skipped and Failed tests. A test is considered
-% to be skipped if it throws a COBRA:RequirementsNotMet error.
+% to be skipped if it throws a CELLFIE:RequirementsNotMet error.
 %
 % OUTPUTS:
 %
@@ -22,7 +22,6 @@ function result = runScriptFile(fileName)
 %    this function has been adapted from
 %    https://github.com/opencobra/cobratoolbox/blob/master/test/runScriptFile.m
 %    [b58da0c]
-
 
 global CBT_MISSING_REQUIREMENTS_ERROR_ID
 

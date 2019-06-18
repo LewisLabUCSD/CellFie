@@ -12,7 +12,6 @@ function restoreEnvironment(environment, restorePath, printLevel)
 %    printLevel:       Set the verbosity of this method:
 %                       * 0: No outputs (Default)
 %                       * 1: Info what each value is set to
-% 
 % NOTE:
 %    this function has been adapted from
 %    https://github.com/opencobra/cobratoolbox/blob/master/src/base/utilities/restoreEnvironment.m

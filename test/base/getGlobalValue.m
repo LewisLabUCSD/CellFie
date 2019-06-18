@@ -15,7 +15,6 @@ function value = getGlobalValue(globalName)
 %    https://github.com/opencobra/cobratoolbox/blob/master/src/base/utilities/getGlobalValue.m
 %    [e6b4efd]
 
-
     eval(['global ' globalName]);
     eval(['value = ' globalName ';']);
 end
