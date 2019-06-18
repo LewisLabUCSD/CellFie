@@ -30,7 +30,6 @@ function [results, resultTable] = runTestSuite(testNames)
 %    https://github.com/opencobra/cobratoolbox/blob/master/test/runTestSuite.m
 %    [5395578]
 
-
 global CELLFIEDIR
 
 if ~exist('testNames','var')

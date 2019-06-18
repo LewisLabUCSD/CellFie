@@ -49,7 +49,6 @@ function files = getFilesInDir(varargin)
 %    https://github.com/opencobra/cobratoolbox/blob/master/src/base/install/getFilesInDir.m
 %    [cdb2478]
 
-
 persistent COBRAIgnored
 
 if isempty(COBRAIgnored)
