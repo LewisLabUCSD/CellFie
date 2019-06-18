@@ -17,6 +17,11 @@ function result = runScriptFile(fileName)
 %                - `.Error`: Error message received from a failed or skipped test
 %
 % .. Author:   - Thomas Pfau Jan 2018.
+%
+% NOTE:
+%    this function has been adapted from
+%    https://github.com/opencobra/cobratoolbox/blob/master/test/runScriptFile.m
+%    [b58da0c]
 
 global CBT_MISSING_REQUIREMENTS_ERROR_ID
 
