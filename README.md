@@ -68,3 +68,4 @@ Run with bash wrapper
 cd genepattern/
 ./bashwrapper.sh 'dataTest.mat' 3 'MT_recon_2_2_entrez.mat' 'local' 'value' 'minmaxmean' 25 75
 ```
+## [Explanation of method and parameters (wiki)](https://github.com/ResearchSoftwareInstitute/CellFie/wiki/Cellfie-Documentation)
