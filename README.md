@@ -40,13 +40,21 @@ savepath
 Run in matlab
 ```matlab
 #matlab
-load('test/suite/dataTest.mat')
+# expression matrix: entrez ids x samples
+load('test/suite/dataTest.mat') 
+# number of samples (equal to the column number of the expression matrix
 SampleNumber=3;
+# reference genome (all listed in the test/suite)
 ref='test/suite/MT_recon_2_2_entrez.mat';
+# type of thresholding method ('local' or 'global')
 param.ThreshType='local';
+# numerical cutoff ('value' or 'percent')
 param.percentile_or_value='value';
+# local threshold type ('minmaxmean', 'custom' or 'mean')
 param.LocalThresholdType='minmaxmean';
+# minimum cutoff (0-1000 for 'value', 0-1 'percent')
 param.value_low=25;
+# maximum cutoff (0-1000 for 'value', 0-1 'percent')
 param.value_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
