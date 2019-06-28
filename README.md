@@ -1,4 +1,4 @@
-# CellFie
+# CellFie (FOR GENE PATTERN)
 
 ## Install
 
