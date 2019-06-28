@@ -37,7 +37,7 @@ addpath(genpath(<path to cellfie>));
 savepath
 ```
 ## Quick Start
-Run
+Run in matlab
 ```matlab
 #matlab
 load('test/suite/dataTest.mat')
@@ -51,6 +51,9 @@ param.value_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 ```
-
-
+Run with bash wrapper
+```bash
+#bash
+cd genepattern/
+./bashwrapper.sh 'dataTest.mat' 3 'MT_recon_2_2_entrez.mat' 'local' 'value' 'minmaxmean' 25 75
 ```
