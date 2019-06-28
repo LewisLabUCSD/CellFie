@@ -20,6 +20,7 @@ initCobraToolbox
 addpath(genpath(<path to cobra>));
 savepath
 ```
+Note: installing the solvers is not necessary for cellfie
 
 - Install cellfie
 Download Cellfie
@@ -34,4 +35,22 @@ cd <path to cellfie>
 initCellFie
 addpath(genpath(<path to cellfie>));
 savepath
+```
+## Quick Start
+Run
+```matlab
+#matlab
+load('test/suite/dataTest.mat')
+SampleNumber=3;
+ref='test/suite/MT_recon_2_2_entrez.mat';
+param.ThreshType='local';
+param.percentile_or_value='value';
+param.LocalThresholdType='minmaxmean';
+param.value_low=25;
+param.value_high=75;
+
+[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
+```
+
+
 ```
