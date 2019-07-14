@@ -10,7 +10,8 @@ function []=runCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH)
 	param.value_high=pHIGH;
 
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
+	save cellfieout score score_binary taskInfos detailScoring
 
-	csvwrite('score.csv',score);
-	csvwrite('score_binary.csv',score_binary);
-	csvwrite('taskInfo.csv',taskInfos);
+%	csvwrite('score.csv',score);
+%	csvwrite('score_binary.csv',score_binary);
+%	csvwrite('taskInfo.csv',taskInfos);
