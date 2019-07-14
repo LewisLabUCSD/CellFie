@@ -62,10 +62,15 @@ param.value_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 ```
-Run with bash wrapper
+Run with wrapper
 ```bash
 #bash
 cd genepattern/
 ./bashwrapper.sh 'dataTest.mat' 3 'MT_recon_2_2_entrez.mat' 'local' 'value' 'minmaxmean' 25 75
+```
+
+```matlab
+runCellfie('test/suite/dataTest.mat', '3', 'MT_recon_2_2_entrez.mat','local','minmaxmean','value','25','75' );
+
 ```
 ## [Explanation of method and parameters (wiki)](https://github.com/ResearchSoftwareInstitute/CellFie/wiki/Cellfie-Documentation)
