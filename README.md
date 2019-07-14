@@ -46,7 +46,7 @@ load 'test/suite/dataTest.mat'
 SampleNumber=3;
 
 % reference genome (all listed in the test/suite)
-ref='input/MT_recon_2_2_entrez.mat';
+ref='MT_recon_2_2_entrez.mat';
 
 % type of thresholding method ('local' or 'global')
 param.ThreshType='local';
