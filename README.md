@@ -41,7 +41,7 @@ Run in matlab
 ```matlab
 %matlab
 % expression matrix: entrez ids x samples
-load('test/suite/dataTest.mat') 
+load 'test/suite/dataTest.mat'
 % number of samples (equal to the column number of the expression matrix
 SampleNumber=3;
 
