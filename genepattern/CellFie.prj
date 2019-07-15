@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="455511586" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/CellFie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern" name="CellFie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/CellFie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="2714475871" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/CellFie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern" name="CellFie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/CellFie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>runCellFie</param.appname>
     <param.icon />
     <param.icons />
@@ -89,7 +89,6 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
     </fileset.resources>
     <fileset.package />
     <fileset.depfun>
-      <file>${PROJECT_ROOT}/runCellfie.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/CellFie.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/prctile.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/tabulate.m</file>
