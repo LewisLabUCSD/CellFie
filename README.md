@@ -65,8 +65,9 @@ param.value_high=75;
 Run with wrapper
 ```bash
 #bash
-cd genepattern/
-./bashwrapper.sh 'dataTest.mat' 3 'MT_recon_2_2_entrez.mat' 'local' 'value' 'minmaxmean' 25 75
+mcr_dir=/home/<usr>/tmp/v94 % whereever mcr was installed
+./genepattern/CellFie/for_redistribution_files_only/run_runCellFie.sh $mcr_dir test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+
 ```
 
 ```matlab
