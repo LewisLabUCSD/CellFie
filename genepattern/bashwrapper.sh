@@ -20,7 +20,7 @@ pLOW=$7
 pHIGH=$8
 
 #Run
-CMD="addpath(genpath('..'));runCellfie('$DATA',$SAMP,'$REF','$pTHRESH','$pPERCVAL','$pTYPE',$pLOW,$pHIGH);exit"
+CMD="addpath(genpath('..'));execCellfie('$DATA',$SAMP,'$REF','$pTHRESH','$pPERCVAL','$pTYPE',$pLOW,$pHIGH);exit"
 echo $CMD
 matlab -nosplash -nodesktop -r $CMD
 

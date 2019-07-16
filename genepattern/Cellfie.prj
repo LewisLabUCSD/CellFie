@@ -1,0 +1,138 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern" name="Cellfie" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Cellfie</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>0.5</param.version>
+    <param.authnamewatermark>Anne Richelle, Ben Kellman</param.authnamewatermark>
+    <param.email>bkellman@eng.ucsd.edu</param.email>
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>/Cellfie/</param.installpath.string>
+    <param.installpath.combo>option.installpath.user</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes>In the following directions, replace MR/v94 by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
+
+(1) Set the environment variable XAPPLRESDIR to this value:
+
+MR/v94/X11/app-defaults
+
+
+(2) If the environment variable LD_LIBRARY_PATH is undefined, set it to the following:
+
+MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa64:MR/v94/sys/opengl/lib/glnxa64
+
+If it is defined, set it to the following:
+
+${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa64:MR/v94/sys/opengl/lib/glnxa64</param.target.install.notes>
+    <param.intermediate>${PROJECT_ROOT}/Cellfie/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/Cellfie/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/Cellfie/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/Cellfie</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text />
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+      <param.help.text />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/execCellfie.m</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/input</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/input/taskStructure.mat</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/CellFie.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/prctile.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/src/tabulate.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/analysis/exploration/findRxnIDs.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/GPRparser.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/findUsedGenesLevels.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/mapExpressionToReactions.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/selectGeneFromGPR.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/AndNode.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/FormulaParser.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/LiteralNode.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/Node.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/OrNode.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/cobratoolbox/src/reconstruction/refinement/GPRLogic/combineChildren.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/Cellfie/for_testing" name="Cellfie" optional="false">/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_testing/Cellfie</file>
+      <file location="${PROJECT_ROOT}/Cellfie/for_testing" name="run_Cellfie.sh" optional="false">/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_testing/run_Cellfie.sh</file>
+      <file location="${PROJECT_ROOT}/Cellfie/for_testing" name="readme.txt" optional="true">/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/Cellfie/for_testing" name="splash.png" optional="false">/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_testing/splash.png</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2018a</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>4.15.0-54-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

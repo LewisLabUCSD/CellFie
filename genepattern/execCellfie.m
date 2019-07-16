@@ -30,7 +30,7 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH)
 	T = cell2table(taskInfos);
  	writetable(T,'taskInfo.csv');
 
-% ./genepattern/CellFie/for_redistribution_files_only/run_runCellFie.sh /media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/tmp/v94 test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+% ./genepattern/Cellfie/for_redistribution_files_only/run_Cellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
 % execCellfie('test/suite/dataTest.mat','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
-% ./genepattern/CellFie/for_redistribution_files_only/run_runCellFie.sh /media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/tmp/v94 test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+% ./genepattern/Cellfie/for_redistribution_files_only/run_Cellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
 % execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
