@@ -3,7 +3,6 @@
 
 FROM ubuntu:18.04
 
-#RUN apt-get update && apt-get install -y zip unzip libxt-dev wget libjasper-runtime
 RUN apt-get update && apt-get install -y zip unzip wget libc6 libxt-dev
 
 ## R2018a
@@ -19,8 +18,9 @@ RUN ln -sf /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /usr/local/MATLAB/MATLAB_Run
 ENV MCRROOT=/usr/local/MATLAB/MATLAB_Runtime/v94 MCR_CACHE_ROOT=/tmp
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MCRROOT/runtime/glnxa64:$MCRROOT/bin/glnxa64:$MCRROOT/sys/os/glnxa64:$MCRROOT/sys/opengl/lib/glnxa64:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64/server:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64
 
-COPY . /
+COPY ./ /
 
-ENTRYPOINT sh run_CellFie.sh $@
+ENTRYPOINT sh ./CellFie/genepattern/CellFie/for_redistribution_files_only/run_runCellFie.sh $@
+#ENTRYPOINT ls
 
 CMD []
