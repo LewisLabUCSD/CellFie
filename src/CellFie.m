@@ -152,48 +152,48 @@ linData(linData==0)=[];
 % definition of the thresholds
 if strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'percentile')
     display('RUN - global: percentile')
-    figure(1);hist(log10(linData),50)
+    %figure(1);hist(log10(linData),50)
     l_global = (prctile(log10(linData),param.percentile));
     data.ths=10^l_global;
-    h_global=line([l_global,l_global],get(gca,'YLim'),'Color','c');
-    legend(h_global,{[num2str(param.percentile),'th percentile = ',num2str(data.ths)]},'FontSize',14)
-    xlabel('log10(expressionValue)','FontSize',14)
-    ylabel('Genes','FontSize',14)
+    %h_global=line([l_global,l_global],get(gca,'YLim'),'Color','c');
+    %legend(h_global,{[num2str(param.percentile),'th percentile = ',num2str(data.ths)]},'FontSize',14)
+    %xlabel('log10(expressionValue)','FontSize',14)
+    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'value')
     display('RUN - global: value')
-    figure(1);hist(log10(linData),50)
+    %figure(1);hist(log10(linData),50)
     data.ths=param.value;
-    h_global=line([log10(param.value),log10(param.value)],get(gca,'YLim'),'Color','c');
-    legend(h_global,{'global threshold'},'FontSize',14)
-    xlabel('log10(expressionValue)','FontSize',14)
-    ylabel('Genes','FontSize',14)
+    %h_global=line([log10(param.value),log10(param.value)],get(gca,'YLim'),'Color','c');
+    %legend(h_global,{'global threshold'},'FontSize',14)
+    %xlabel('log10(expressionValue)','FontSize',14)
+    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'mean')
     display('RUN - local: mean')
-    figure(1);hist(log10(linData),50)
-    xlabel('log10(expressionValue)','FontSize',14)
-    ylabel('Genes','FontSize',14)
+    %figure(1);hist(log10(linData),50)
+    %xlabel('log10(expressionValue)','FontSize',14)
+    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'percentile')
     display('RUN - local: minmaxmean: percentile')
-    figure(1);hist(log10(linData),50)
+    %figure(1);hist(log10(linData),50)
     l_high = (prctile(log10(linData),param.percentile_high));
     data.ths_high=10^l_high;
     l_low = (prctile(log10(linData),param.percentile_low));
     data.ths_low=10^l_low;
-    h_high=line([l_high,l_high],get(gca,'YLim'),'Color','c');
-    h_low=line([l_low,l_low],get(gca,'YLim'),'Color','r');
-    legend([h_high,h_low],{[num2str(param.percentile_high),'th percentile = ',num2str(data.ths_high)],[num2str(param.percentile_low),'th percentile = ',num2str(data.ths_low)]},'FontSize',14)
-    xlabel('log10(expressionValue)','FontSize',14)
-    ylabel('Genes','FontSize',14)
+    %h_high=line([l_high,l_high],get(gca,'YLim'),'Color','c');
+    %h_low=line([l_low,l_low],get(gca,'YLim'),'Color','r');
+    %legend([h_high,h_low],{[num2str(param.percentile_high),'th percentile = ',num2str(data.ths_high)],[num2str(param.percentile_low),'th percentile = ',num2str(data.ths_low)]},'FontSize',14)
+    %xlabel('log10(expressionValue)','FontSize',14)
+    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'value')
     display('RUN - local: minmaxmean: value')
-    figure(1);hist(log10(linData),50)
+    %figure(1);hist(log10(linData),50)
     data.ths_high=param.value_high;
     data.ths_low=param.value_low;
-    h_high=line([log10(param.value_high),log10(param.value_high)],get(gca,'YLim'),'Color','c');
-    h_low=line([log10(param.value_low),log10(param.value_low)],get(gca,'YLim'),'Color','r');
-    legend([h_high,h_low],{'Lower local threshold','Upper local threshold'},'FontSize',14)
-    xlabel('log10(expressionValue)','FontSize',14)
-    ylabel('Genes','FontSize',14)
+    %h_high=line([log10(param.value_high),log10(param.value_high)],get(gca,'YLim'),'Color','c');
+    %h_low=line([log10(param.value_low),log10(param.value_low)],get(gca,'YLim'),'Color','r');
+    %legend([h_high,h_low],{'Lower local threshold','Upper local threshold'},'FontSize',14)
+    %xlabel('log10(expressionValue)','FontSize',14)
+    %ylabel('Genes','FontSize',14)
 else
     error('No analysis triggered')
 end
