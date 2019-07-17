@@ -22,8 +22,8 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH)
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
-	saveas(figure(1),'histogram.png')
-	close(figure(1))
+	%saveas(figure(1),'histogram.png')
+	%close(figure(1))
 
 	csvwrite('score.csv',score);
 	csvwrite('score_binary.csv',score_binary);
