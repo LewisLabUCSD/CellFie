@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="2556378843" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern" name="Cellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="1915259818" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern" name="Cellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/Cellfie_tmp/CellFie/genepattern/Cellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>Cellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.5</param.version>
+    <param.version>0.6</param.version>
     <param.authnamewatermark>Anne Richelle, Ben Kellman</param.authnamewatermark>
     <param.email>bkellman@eng.ucsd.edu</param.email>
     <param.company />
