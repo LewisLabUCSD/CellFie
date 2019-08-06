@@ -349,8 +349,8 @@ end
 noTask=find(ScorebyTask(:,1)==-1);
 score=ScorebyTask;
 score_binary=ScorebyTask_binary;
-score([noTask],:) = [];
-score_binary([noTask],:) = [];
+%score([noTask],:) = [];
+%score_binary([noTask],:) = [];
 
 end
 
