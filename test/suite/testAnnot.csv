@@ -1,0 +1,4 @@
+Samples,Disease,Age,Gender,Medicine,Dose
+S1,Positive,15,M,MedA,15
+S2,Positive,43,M,MedB,15
+S3,Extreme,35,F,MedA,33
