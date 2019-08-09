@@ -1,4 +1,4 @@
-function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH)
+function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdir)
     if contains(DATA,'mat')
     	load(DATA);
     elseif( contains(DATA,'csv')||contains(DATA,'tsv'))
@@ -25,12 +25,12 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH)
 	%saveas(figure(1),'histogram.png')
 	%close(figure(1))
 
-	csvwrite('score.csv',score);
-	csvwrite('score_binary.csv',score_binary);
+	csvwrite(strcat(outputdir,'/score.csv'),score);
+	csvwrite(strcat(outputdir,'/score_binary.csv'),score_binary);
 	T = cell2table(taskInfos);
- 	writetable(T,'taskInfo.csv');
+ 	writetable(T,strcat(outputdir,'/taskInfo.csv'));
 
-% ./genepattern/Cellfie/for_redistribution_files_only/run_Cellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+% ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
 % execCellfie('test/suite/dataTest.mat','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
-% ./genepattern/Cellfie/for_redistribution_files_only/run_Cellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+% ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
 % execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
