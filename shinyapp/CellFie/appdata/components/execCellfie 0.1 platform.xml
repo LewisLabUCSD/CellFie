@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<componentData>
+   <component>
+      <componentBaseName>execCellfie</componentBaseName>
+      <componentFileName>test.enc</componentFileName>
+      <componentName>execCellfie</componentName>
+      <componentVersion>0.1</componentVersion>
+      <locale/>
+      <numFiles>0</numFiles>
+      <locationId>0</locationId>
+      <platformList>
+         <platform>glnxa64</platform>
+      </platformList>
+      <releaseFamily>R2018a</releaseFamily>
+      <size>0</size>
+      <type/>
+      <uncompressedBytes>0</uncompressedBytes>
+   </component>
+</componentData>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<productAdditionalComps>
+   <dependsOn>
+      <component>
+         <name>execCellfie</name>
+         <locale/>
+         <platformList>
+            <platform>glnxa64</platform>
+         </platformList>
+         <version>0.1</version>
+      </component>
+   </dependsOn>
+   <isControllingProduct>true</isControllingProduct>
+   <platform>glnxa64</platform>
+   <productName>execCellfie</productName>
+   <productNumber>5000</productNumber>
+   <productBaseCode>execCellfie</productBaseCode>
+   <productVersion>0.1</productVersion>
+   <releaseFamily>R2018a</releaseFamily>
+   <releaseDescription>R2018a</releaseDescription>
+</productAdditionalComps>
