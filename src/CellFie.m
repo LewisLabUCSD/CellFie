@@ -234,13 +234,26 @@ expression.Rxns=[];
 expression.gene_used=[];
 expression.count=[];
 minSum = false;
+
+display('Load GPR parse');
+parsedGPR = GPRparser(model,minSum);% Extracting GPR data from model % Ben Kellman, 8/25/19
+
+display('Mapping of the expression data to the model');
 for i=1:SampleNumber
     if SampleNumber==1
         expression.value=Gene_score;
     else
        expression.value=Gene_score(:,i);
     end
-    [expressionRxns, parsedGPR, gene_used] = mapExpressionToReactions(model, expression, minSum);
+    %[expressionRxns, parsedGPR, gene_used] =
+    %mapExpressionToReactions(model, expression, minSum); % moved gpr
+    %parsing outside of for loop $ Ben Kellman, 8/25/19
+    % moved out of forloop
+    % Find wich genes in expression data are used in the model
+    [gene_id, gene_expr] = findUsedGenesLevels(model,expression);
+    % Link the gene to the model reactions # NOTE: THIS IS THE TIME SINK
+    [expressionRxns, gene_used] = selectGeneFromGPR(model, gene_id, gene_expr, parsedGPR, minSum);
+    
     gene_all=[];
     for j=1:length(gene_used)
         if ~isempty(gene_used{j})
@@ -268,6 +281,7 @@ significance=1./expression.count;
 significance(isinf(significance))=0;
 ScorebyTask=[];
 ScorebyTask_binary=[];
+display('Compute the task activity score');
 for i=1:size(taskInfos,1)
 	if ~isempty(essentialRxns{i})
     	rxns=essentialRxns{i};
@@ -310,6 +324,7 @@ for i=1:size(taskInfos,1)
 end
 
 detailScoring={};
+display('Format the score')
 for j=1:SampleNumber
     incR=1;
     for i=1:size(taskInfos,1)

@@ -3,7 +3,7 @@
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.1</param.version>
+    <param.version>0.2</param.version>
     <param.authnamewatermark>Richelle, Kellman</param.authnamewatermark>
     <param.email>bkellman@eng.ucsd.edu</param.email>
     <param.company />
@@ -98,7 +98,6 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/analysis/exploration/findRxnIDs.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/GPRparser.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/findUsedGenesLevels.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/mapExpressionToReactions.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/selectGeneFromGPR.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/AndNode.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/FormulaParser.m</file>
