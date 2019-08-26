@@ -62,16 +62,17 @@ param.value_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 ```
-Run with wrapper
-```bash
-#bash
-mcr_dir=/home/<usr>/tmp/v94 % whereever mcr was installed
-./genepattern/CellFie/for_redistribution_files_only/run_runCellFie.sh $mcr_dir test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
-
-```
+### Run matlab cellfie wrapper
 
 ```matlab
-runCellfie('test/suite/dataTest.mat', '3', 'MT_recon_2_2_entrez.mat','local','minmaxmean','value','25','75' );
-
+execCellfie('test/suite/dataTest.mat','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
+execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75')
 ```
+### Run bash wrapper for MCR compiled cellfie wrapper
+```bash
+./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+```
+
+
 ## [Explanation of method and parameters (wiki)](https://github.com/ResearchSoftwareInstitute/CellFie/wiki/Cellfie-Documentation)
