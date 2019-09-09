@@ -110,7 +110,7 @@ server <- function(input, output) {
   textout = eventReactive(input$run,{
        cmd = paste('./application/run_execCellfie.sh v94/',
                    input$expressionCSV$datapath, ncol(expss())-1 , input$model , input$intype , input$valuetype ,
-                   input$localtype, input$valMin,input$valMax,paste(unique_index)) 
+                   input$localtype, input$valMin,input$valMax,paste(unique_index),'.') 
       return( system( cmd , intern=T ))
    })
   
@@ -143,7 +143,7 @@ server <- function(input, output) {
     colnames(dat) = annot()[,1]
     rownames(dat) = tasks()[,2]
     print(head(dat))
-    heatmap.2(log(na.omit(data.matrix(dat[rowMeans(dat)>2,]))+1e-3),trace='none')
+    heatmap.2(t(log(na.omit(data.matrix(dat[rowMeans(dat)>2,]))+1e-3)),mar=c(10,5),trace='none')
   })
   
   # download results
