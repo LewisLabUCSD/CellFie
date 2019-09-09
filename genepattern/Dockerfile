@@ -19,12 +19,7 @@ ENV MCRROOT=/usr/local/MATLAB/MATLAB_Runtime/v94 MCR_CACHE_ROOT=/tmp
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MCRROOT/runtime/glnxa64:$MCRROOT/bin/glnxa64:$MCRROOT/sys/os/glnxa64:$MCRROOT/sys/opengl/lib/glnxa64:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64/server:$MCRROOT/sys/java/jre/glnxa64/jre/lib/amd64
 
 RUN mkdir CellFie
-RUN mkdir IO
 
 COPY ./ /CellFie/
-
-WORKDIR /IO/
-
-ENTRYPOINT ./../CellFie/genepattern/Cellfie/for_redistribution_files_only/run_Cellfie.sh "$0" "$@"
 
 CMD []
