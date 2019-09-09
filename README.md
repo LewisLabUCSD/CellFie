@@ -66,17 +66,17 @@ param.value_high=75;
 
 ```matlab
 execCellfie('test/suite/dataTest.mat','3','MT_recon_2_2_entrez.mat','local',
-  'value','minmaxmean','25','75')
+  'value','minmaxmean','25','75','outtmp')
 execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local',
-  'value','minmaxmean','25','75')
+  'value','minmaxmean','25','75','outtmp)
 ```
 ### Run bash wrapper for MCR compiled cellfie wrapper
 ```bash
 MCR=/usr/local/MATLAB/MATLAB_Runtime/v94
 ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh $MCR 
-  test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+  test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
 ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh $MCR
-  test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75
+  test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
 ```
 
 
