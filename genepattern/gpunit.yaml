@@ -1,0 +1,21 @@
+# Based on https://github.com/genepattern/STREAM.DetectTransitionGenes/blob/master/test/stream_detecttransitiongenes.yaml
+
+#
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="atwenzel2" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+#
+
+name: CellFie
+module: CellFie
+params:
+    "data": "../test/suite/dataTest.csv"
+    "SampleNumber": 3
+    "ref": "MT_recon_2_2_entrez.mat"
+
+assertions:
+    jobStatus: success
+    files:
+        "score.csv": !!null
+        "cellfieout.mat": !!null
+        "score_binary.csv": !!null
+        "taskInfo.csv": !!null
+        "stdout.txt": !!null
