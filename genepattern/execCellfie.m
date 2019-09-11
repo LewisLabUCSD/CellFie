@@ -16,9 +16,27 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 	param.ThreshType=pTHRESH;
 	param.percentile_or_value=pPERCVAL;
 	param.LocalThresholdType=pTYPE;
-	param.value_low=str2num(pLOW);
-	param.value_high=str2num(pHIGH);
-
+    if strcmp(pTHRESH,'local')
+        if strcmp(pPERCVAL,'percentile')
+            param.percentile_low=25;
+            param.percentile_high=75;
+        elseif strcmp(pPERCVAL,'value')
+            param.value_low=str2num(pLOW);
+            param.value_high=str2num(pHIGH);
+        else
+            error("cutoff type must be 'percentile' or 'value'")
+        end
+    elseif strcmp(pTHRESH,'global')
+        if strcmp(pPERCVAL,'percentile')
+            param.percentile=str2num(pLOW);
+        elseif strcmp(pPERCVAL,'value')
+            param.value=str2num(pLOW);
+        else
+            error("cutoff type must be 'percentile' or 'value'")
+        end
+    else
+        error("threshold type must be 'local' or 'global'")
+    end
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
