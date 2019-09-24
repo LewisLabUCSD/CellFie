@@ -12,6 +12,10 @@ param.value_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 save dataRecon22_local_minmaxmean_value score score_binary taskInfos detailScoring
+csvwrite('dataRecon22_local_minmaxmean_value.score.csv',score);
+csvwrite('dataRecon22_local_minmaxmean_value.score_binary.csv',score_binary);
+T = cell2table(taskInfos);
+writetable(T,'dataRecon22_local_minmaxmean_value.taskInfo.csv');
 
 %% dataRecon22_local_minmaxmean_percentile
 load('dataTest.mat')
@@ -25,6 +29,10 @@ param.percentile_high=75;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 save dataRecon22_local_minmaxmean_percentile score score_binary taskInfos detailScoring
+csvwrite('dataRecon22_local_minmaxmean_percentile.score.csv',score);
+csvwrite('dataRecon22_local_minmaxmean_percentile.score_binary.csv',score_binary);
+T = cell2table(taskInfos);
+writetable(T,'dataRecon22_local_minmaxmean_percentile.taskInfo.csv');
 
 
 %% dataRecon22_local_mean
@@ -36,6 +44,11 @@ param.LocalThresholdType='mean';
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 save dataRecon22_local_mean score score_binary taskInfos detailScoring
+csvwrite('dataRecon22_local_mean.score.csv',score);
+csvwrite('dataRecon22_local_mean.score_binary.csv',score_binary);
+T = cell2table(taskInfos);
+writetable(T,'dataRecon22_local_mean.taskInfo.csv');
+
 
 %% dataRecon22_global_value
 load('dataTest.mat')
@@ -47,6 +60,11 @@ param.value=50;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 save dataRecon22_global_value score score_binary taskInfos detailScoring
+csvwrite('dataRecon22_global_value.score.csv',score);
+csvwrite('dataRecon22_global_value.score_binary.csv',score_binary);
+T = cell2table(taskInfos);
+writetable(T,'dataRecon22_global_value.taskInfo.csv');
+
 
 %% dataRecon22_global_percentile
 load('dataTest.mat')
@@ -58,3 +76,7 @@ param.percentile=50;
 
 [score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 save dataRecon22_global_percentile score score_binary taskInfos detailScoring
+csvwrite('dataRecon22_global_percentile.score.csv',score);
+csvwrite('dataRecon22_global_percentile.score_binary.csv',score_binary);
+T = cell2table(taskInfos);
+writetable(T,'dataRecon22_global_percentile.taskInfo.csv');
