@@ -1,0 +1,41 @@
+# Based on https://github.com/genepattern/STREAM.DetectTransitionGenes/blob/master/test/stream_detecttransitiongenes.yaml
+
+#
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="atwenzel2" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+#
+
+#load('dataTest.mat')
+#SampleNumber=3;
+#ref='MT_recon_2_2_entrez.mat';
+#param.ThreshType='local';
+#param.percentile_or_value='value';
+#param.LocalThresholdType='minmaxmean';
+#param.value_low=25;
+#param.value_high=75;
+
+#[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
+#save dataRecon22_local_minmaxmean_value score score_binary taskInfos detailScoring
+#csvwrite('dataRecon22_local_minmaxmean_value.score.csv',score);
+#csvwrite('dataRecon22_local_minmaxmean_value.score_binary.csv',score_binary);
+#T = cell2table(taskInfos);
+#writetable(T,'dataRecon22_local_minmaxmean_value.taskInfo.csv');
+
+name: local_minmaxmean_value
+module: CellFie
+params:
+    "data": "../test/suite/dataTest.csv"
+    "SampleNumber": 3
+    "ref": "MT_recon_2_2_entrez.mat"
+    "param.ThreshType": "local"
+    "param.percentile_or_value": "value"
+    "param.LocalThresholdType": "minmaxmean"
+    "param.percentile_value_low": 25
+    "param.percentile_value_high": 75
+
+assertions:
+    jobStatus: success
+    files:
+        "score.csv":
+            diff: "../test/suite/dataRecon22_local_minmaxmean_value.score.csv"
+        "score_binary.csv":
+            diff: "../test/suite/dataRecon22_local_minmaxmean_value.score_binary.csv"

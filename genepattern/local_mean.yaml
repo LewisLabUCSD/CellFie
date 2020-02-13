@@ -1,0 +1,36 @@
+# Based on https://github.com/genepattern/STREAM.DetectTransitionGenes/blob/master/test/stream_detecttransitiongenes.yaml
+
+#
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="atwenzel2" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+#
+
+#load('dataTest.mat')
+#SampleNumber=3;
+#ref='MT_recon_2_2_entrez.mat';
+#param.ThreshType='local';
+#param.LocalThresholdType='mean';
+
+#[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
+#save dataRecon22_local_mean score score_binary taskInfos detailScoring
+#csvwrite('dataRecon22_local_mean.score.csv',score);
+#csvwrite('dataRecon22_local_mean.score_binary.csv',score_binary);
+#T = cell2table(taskInfos);
+#writetable(T,'dataRecon22_local_mean.taskInfo.csv');
+
+name: local_mean
+module: CellFie
+params:
+    "data": "../test/suite/dataTest.csv"
+    "SampleNumber": 3
+    "ref": "MT_recon_2_2_entrez.mat"
+    "param.ThreshType": "local"
+    "param.LocalThresholdType": "mean"
+    job.memory: "8 Gb"
+
+assertions:
+    jobStatus: success
+    files:
+        "score.csv":
+            diff: "../test/suite/dataRecon22_local_mean.score.csv"
+        "score_binary.csv":
+            diff: "../test/suite/dataRecon22_local_mean.score_binary.csv"

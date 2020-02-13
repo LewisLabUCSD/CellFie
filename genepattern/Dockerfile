@@ -1,6 +1,8 @@
 ## Copied from https://hub.docker.com/r/spacetimeanalytics/docker-matlab-runtime/dockerfile
 ## but changed to Ubuntu 18.04
 
+## docker build -f genepattern/Dockerfile -t cellfie .
+
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y zip unzip wget libc6 libxt-dev
