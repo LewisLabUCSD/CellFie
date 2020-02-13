@@ -1,7 +1,7 @@
 function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdir)
     if contains(DATA,'mat')
     	load(DATA);
-    elseif( contains(DATA,'csv')||contains(DATA,'tsv'))
+    elseif( contains(DATA,'csv')||contains(DATA,'tsv')||contains(DATA,'xlsx')||contains(DATA,'xls'))
         datatmp=readtable(DATA);
         genetmp=table2array(datatmp(:,1));
         tmp = struct('gene',table2array(datatmp(:,1)),'value',table2array(datatmp(:,2:end)));
@@ -56,3 +56,7 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 %   /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.csv 3 \
 %   MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
 % execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75','outtmp')
+% ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh \
+%   /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.xlsx 3 \
+%   MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
+% execCellfie('test/suite/dataTest.xlsx','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75','outtmp')
