@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="625669805" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="1776550452" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.2</param.version>
+    <param.version>0.3</param.version>
     <param.authnamewatermark>Richelle, Kellman</param.authnamewatermark>
     <param.email>bkellman@eng.ucsd.edu</param.email>
     <param.company />

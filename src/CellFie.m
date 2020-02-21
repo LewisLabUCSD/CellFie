@@ -356,16 +356,30 @@ for j=1:SampleNumber
                     %listed in the 7th column
                     detailScoring{incR,((j-1)*8)+8}=data.value(strcmp(data.gene,geneName),SampleNumber);
                     incR=incR+1;
-            end
-       end
+                end
+           end
+        end
+    end
+    %noTask=find(ScorebyTask(:,1)==-1);
+    score=ScorebyTask;
+    score_binary=ScorebyTask_binary;
+    %score([noTask],:) = [];
+    %score_binary([noTask],:) = [];
+    %taskInfos([noTask],:) = [];
+end
+
+% get model checking tasks
+r = readtable('input/inactive_reactions.csv','Delimiter',',');
+noTask=r.index; %find(ScorebyTask(:,1)==-1);
+% check removed tasks
+for i=1:length(noTask)
+    nti = noTask(i);
+    if taskInfos{nti,2}~=r.v1{i}
+        error('inactive reaction index does not match taskInfo')
     end
 end
-
-noTask=find(ScorebyTask(:,1)==-1);
-score=ScorebyTask;
-score_binary=ScorebyTask_binary;
-%score([noTask],:) = [];
-%score_binary([noTask],:) = [];
-
-end
-
+    
+% remove model checking tasks
+score([noTask],:) = [];
+score_binary([noTask],:) = [];
+taskInfos([noTask],:) = [];

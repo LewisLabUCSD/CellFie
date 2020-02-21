@@ -10,6 +10,8 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
             tmp.gene{i}=int2str(genetmp(i));
         end
         data=tmp;
+    else
+        error('Your data file must be formatted as: .mat, .csv, .tsv, .xlsx, or .xls with the correct suffix')
     end
 	SampleNumber=str2num(SAMP);
 	ref=REF;
