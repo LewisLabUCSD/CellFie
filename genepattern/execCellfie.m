@@ -48,7 +48,9 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 	csvwrite(strcat(outputdir,'/score.csv'),score);
 	csvwrite(strcat(outputdir,'/score_binary.csv'),score_binary);
 	T = cell2table(taskInfos);
+    D = cell2table(detailScoring);
  	writetable(T,strcat(outputdir,'/taskInfo.csv'));
+ 	writetable(D,strcat(outputdir,'/detailScoring.csv'));
 
 % ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh \ 
 %   /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.mat 3 \

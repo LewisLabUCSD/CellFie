@@ -1,14 +1,24 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1776550452" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="1973022204" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.3</param.version>
+    <param.version>0.4</param.version>
     <param.authnamewatermark>Richelle, Kellman</param.authnamewatermark>
     <param.email>bkellman@eng.ucsd.edu</param.email>
     <param.company />
-    <param.summary />
-    <param.description />
+    <param.summary>An alternative approach to capture the breadth of cellular functions by performing a functional analysis of existing biological networks.</param.summary>
+    <param.description>CellFie: Cellular Functions InferencE
+
+
+An alternative approach for the interpretation of omics data (e.g., differentially expressed genes) that captures the simplicity of enrichment analyses, while providing deeper mechanistic insights into how differential expression impacts specific cellular functions. This approach enables the investigation of hundreds of metabolic tasks curated from literature covering 7 major metabolic activities of a cell (energy generation, nucleotide, carbohydrate, amino acid, lipid, vitamin &amp; cofactor and glycan metabolism) and 4 mammalian organisms (human, rat, mouse and CHO cells). This platform can be used to predict the activity of these metabolic functions from transcriptomic data to comprehensively quantify the propensity of a cell line or tissue to express a metabolic function.
+
+We welcome any comments, bug reports, and feature requests. Please send all feedback to arichelleres@gmail.com
+
+For issues with the GenePattern module, please contact atwenzel@eng.ucsd.edu
+
+Updates
+3/26/2020 - added detailScores.csv output</param.description>
     <param.screenshot />
     <param.guid />
     <param.installpath.string>/execCellfie/</param.installpath.string>
@@ -54,8 +64,6 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
       <param.icon />
       <param.icons />
       <param.company />
-      <param.summary />
-      <param.description />
       <param.screenshot />
       <param.guid />
       <param.installpath.string />
