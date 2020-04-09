@@ -28,8 +28,8 @@ function[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumbe
 %
 % related to the use of a LOCAL thresholding approach - the threshold value is different for all the genes
 %   param.percentile_or_value   the threshold can be defined using a value introduced by the user ('value')
-%                               or based on a percentile of the distribution of expression value for all the
-%                               genes and across all samples of your
+%                               or based on a percentile of the distribution of expression value of a 
+%                               specific gene across all samples of your
 %                               dataset ('percentile'-default)
 %   param.LocalThresholdType    option to define the type of local thresholding approach to use
 %                               - 'minmaxmean' (default options )- the threshold for a gene is determined by the mean of expression
