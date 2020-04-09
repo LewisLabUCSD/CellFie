@@ -18,27 +18,29 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 	param.ThreshType=pTHRESH;
 	param.percentile_or_value=pPERCVAL;
 	param.LocalThresholdType=pTYPE;
-    if strcmp(pTHRESH,'local')
-        if strcmp(pPERCVAL,'percentile')
-            param.percentile_low=25;
-            param.percentile_high=75;
-        elseif strcmp(pPERCVAL,'value')
-            param.value_low=str2num(pLOW);
-            param.value_high=str2num(pHIGH);
+    %if ~strcmp(pTYPE,'mean')
+        if strcmp(pTHRESH,'local')
+            if strcmp(pPERCVAL,'percentile')
+                param.percentile_low=str2num(pLOW);
+                param.percentile_high=str2num(pHIGH);
+            elseif strcmp(pPERCVAL,'value')
+                param.value_low=str2num(pLOW);
+                param.value_high=str2num(pHIGH);
+            else
+                error("cutoff type must be 'percentile' or 'value'")
+            end
+        elseif strcmp(pTHRESH,'global')
+            if strcmp(pPERCVAL,'percentile')
+                param.percentile=str2num(pLOW);
+            elseif strcmp(pPERCVAL,'value')
+                param.value=str2num(pLOW);
+            else
+                error("cutoff type must be 'percentile' or 'value'")
+            end
         else
-            error("cutoff type must be 'percentile' or 'value'")
+            error("threshold type must be 'local' or 'global'")
         end
-    elseif strcmp(pTHRESH,'global')
-        if strcmp(pPERCVAL,'percentile')
-            param.percentile=str2num(pLOW);
-        elseif strcmp(pPERCVAL,'value')
-            param.value=str2num(pLOW);
-        else
-            error("cutoff type must be 'percentile' or 'value'")
-        end
-    else
-        error("threshold type must be 'local' or 'global'")
-    end
+    %end
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
@@ -64,3 +66,7 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 %   /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.xlsx 3 \
 %   MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
 % execCellfie('test/suite/dataTest.xlsx','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','percentile','minmaxmean','15','85','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','global','percentile','minmaxmean','15','85','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','mean','15','85','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','global','percentile','minmaxmean','15','85','outtmp')
