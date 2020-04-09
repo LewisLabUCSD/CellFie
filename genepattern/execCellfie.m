@@ -18,7 +18,7 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 	param.ThreshType=pTHRESH;
 	param.percentile_or_value=pPERCVAL;
 	param.LocalThresholdType=pTYPE;
-    %if ~strcmp(pTYPE,'mean')
+    if ~strcmp(pTYPE,'mean')
         if strcmp(pTHRESH,'local')
             if strcmp(pPERCVAL,'percentile')
                 param.percentile_low=str2num(pLOW);
@@ -40,7 +40,11 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
         else
             error("threshold type must be 'local' or 'global'")
         end
-    %end
+    end
+    %%% check parameter compatabilty:
+    if strcmp(pTYPE,'mean') && strcmp(pTHRESH,'global')
+        error('threshold strategy "mean" is not compatible with threshold type "global"')
+    end
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
