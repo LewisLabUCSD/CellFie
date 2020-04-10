@@ -1,4 +1,4 @@
-function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdir)
+function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pGLOBAL,pTYPE,pLOW,pHIGH,outputdir)
     if contains(DATA,'mat')
     	load(DATA);
     elseif( contains(DATA,'csv')||contains(DATA,'tsv')||contains(DATA,'xlsx')||contains(DATA,'xls'))
@@ -31,9 +31,9 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
             end
         elseif strcmp(pTHRESH,'global')
             if strcmp(pPERCVAL,'percentile')
-                param.percentile=str2num(pLOW);
+                param.percentile=str2num(pGLOBAL);
             elseif strcmp(pPERCVAL,'value')
-                param.value=str2num(pLOW);
+                param.value=str2num(pGLOBAL);
             else
                 error("cutoff type must be 'percentile' or 'value'")
             end
@@ -42,9 +42,9 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
         end
     end
     %%% check parameter compatabilty:
-    if strcmp(pTYPE,'mean') && strcmp(pTHRESH,'global')
-        error('threshold strategy "mean" is not compatible with threshold type "global"')
-    end
+    %if strcmp(pTYPE,'mean') && strcmp(pTHRESH,'global')
+    %    error('threshold strategy "mean" is not compatible with threshold type "global"')
+    %end
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
@@ -69,8 +69,8 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pTYPE,pLOW,pHIGH,outputdi
 % ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh \
 %   /usr/local/MATLAB/MATLAB_Runtime/v94 test/suite/dataTest.xlsx 3 \
 %   MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
-% execCellfie('test/suite/dataTest.xlsx','3','MT_recon_2_2_entrez.mat','local','value','minmaxmean','25','75','outtmp')
-% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','percentile','minmaxmean','15','85','outtmp')
-% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','global','percentile','minmaxmean','15','85','outtmp')
-% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','mean','15','85','outtmp')
-% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','global','percentile','minmaxmean','15','85','outtmp')
+% execCellfie('test/suite/dataTest.xlsx','3','MT_recon_2_2_entrez.mat','local','value','25','minmaxmean','25','75','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','percentile','40,'minmaxmean','15','85','outtmp')
+% 
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local','value','40','mean','15','85','outtmp')
+% execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','global','percentile','30','minmaxmean','15','85','outtmp')
