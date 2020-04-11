@@ -18,33 +18,31 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pGLOBAL,pTYPE,pLOW,pHIGH,
 	param.ThreshType=pTHRESH;
 	param.percentile_or_value=pPERCVAL;
 	param.LocalThresholdType=pTYPE;
-    if ~strcmp(pTYPE,'mean')
-        if strcmp(pTHRESH,'local')
-            if strcmp(pPERCVAL,'percentile')
-                param.percentile_low=str2num(pLOW);
-                param.percentile_high=str2num(pHIGH);
-            elseif strcmp(pPERCVAL,'value')
-                param.value_low=str2num(pLOW);
-                param.value_high=str2num(pHIGH);
-            else
-                error("cutoff type must be 'percentile' or 'value'")
-            end
-        elseif strcmp(pTHRESH,'global')
-            if strcmp(pPERCVAL,'percentile')
-                param.percentile=str2num(pGLOBAL);
-            elseif strcmp(pPERCVAL,'value')
-                param.value=str2num(pGLOBAL);
-            else
-                error("cutoff type must be 'percentile' or 'value'")
-            end
+    if strcmp(pTHRESH,'local')
+    	if strcmp(pTYPE,'mean')
+	    if strcmp(pPERCVAL,'percentile')
+		param.percentile_low=str2num(pLOW);
+		param.percentile_high=str2num(pHIGH);
+	    elseif strcmp(pPERCVAL,'value')
+		param.value_low=str2num(pLOW);
+		param.value_high=str2num(pHIGH);
+	    else
+		error("cutoff type must be 'percentile' or 'value'")
+	    end
+	end
+    elseif strcmp(pTHRESH,'global')
+        if strcmp(pPERCVAL,'percentile')
+            param.percentile=str2num(pGLOBAL);
+        elseif strcmp(pPERCVAL,'value')
+            param.value=str2num(pGLOBAL);
         else
-            error("threshold type must be 'local' or 'global'")
+            error("cutoff type must be 'percentile' or 'value'")
         end
+    else
+        error("threshold type must be 'local' or 'global'")
     end
-    %%% check parameter compatabilty:
-    %if strcmp(pTYPE,'mean') && strcmp(pTHRESH,'global')
-    %    error('threshold strategy "mean" is not compatible with threshold type "global"')
-    %end
+
+
 	[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
 
 	save cellfieout score score_binary taskInfos detailScoring
