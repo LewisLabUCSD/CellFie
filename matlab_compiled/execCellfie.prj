@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="405576658" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="2165846207" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.5</param.version>
+    <param.version>0.6</param.version>
     <param.authnamewatermark>Richelle, Kellman</param.authnamewatermark>
     <param.email>bkellman@eng.ucsd.edu</param.email>
     <param.company />
@@ -19,7 +19,8 @@ For issues with the GenePattern module, please contact atwenzel@eng.ucsd.edu
 
 Updates
 3/26/2020 - added detailScores.csv output
-4/9/2020 - fixed percentile setting in line 23-25</param.description>
+4/09/2020 - fixed percentile setting in line 23-25
+4/09/2020 - added explicit "global" parameter</param.description>
     <param.screenshot />
     <param.guid />
     <param.installpath.string>/execCellfie/</param.installpath.string>
