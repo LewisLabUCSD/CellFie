@@ -19,7 +19,7 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pGLOBAL,pTYPE,pLOW,pHIGH,
 	param.percentile_or_value=pPERCVAL;
 	param.LocalThresholdType=pTYPE;
     if strcmp(pTHRESH,'local')
-    	if strcmp(pTYPE,'mean')
+    	if strcmp(pTYPE,'minmaxmean')
 	    if strcmp(pPERCVAL,'percentile')
 		param.percentile_low=str2num(pLOW);
 		param.percentile_high=str2num(pHIGH);
