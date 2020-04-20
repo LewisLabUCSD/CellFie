@@ -2,83 +2,16 @@
 
 <img src="https://github.com/LewisLabUCSD/CellFie/blob/master/logo_with_name.png" width="250" height="250">
 
+ CellFie is a computational framework to quantity a cells' metabolic functions.
+ 
+ This framework is available as a web-based module in the list of tools of [GenePattern](www.genepattern.org). See [here](https://github.com/LewisLabUCSD/CellFie/wiki/Tutorial-:-GenePattern-module) information about the GenePattern module
+ 
+ The [source code] (https://github.com/LewisLabUCSD/CellFie/blob/master/src/CellFie.m) is running on Matlab and require the installation of the [CobraToolbox] (https://github.com/opencobra/cobratoolbox). See [here](https://github.com/LewisLabUCSD/CellFie/wiki/Running-CellFie-in-Matlab) information about how to run Cellfie using Matlab
+ 
  A detailed explanation of the methods and tools used in CellFie is available on the [wiki section](https://github.com/LewisLabUCSD/CellFie/wiki) of this repository
 
-## Install
+We welcome any comments, bug reports, and feature requests. Please send all feedback to arichelleres@gmail.com
 
-- Install matlab 2016b
+**Reference**
 
-- Install cobra
-
-Download git,curl and cobratoolbox
-```bash
-# bash
-sudo apt-get install git-all curl
-git clone https://github.com/opencobra/cobratoolbox.git <desired path to cobra>/cobratoolbox
-```
-run initialization in matlab
-```matlab
-% matlab
-cd <path to cobra>
-initCobraToolbox
-addpath(genpath(<path to cobra>));
-savepath
-```
-Note: installing the solvers is not necessary for cellfie
-
-- Install cellfie
-Download Cellfie
-```bash
-# bash
-git clone https://github.com/ResearchSoftwareInstitute/CellFie.git <desired path to cellfie>/CellFie
-```
-Initialize Cellfie
-```matlab
-% matlab
-cd <path to cellfie>
-initCellFie
-addpath(genpath(<path to cellfie>));
-savepath
-```
-## Quick Start
-Run in matlab
-```matlab
-%matlab
-% expression matrix: entrez ids x samples
-load 'test/suite/dataTest.mat'
-% number of samples (equal to the column number of the expression matrix
-SampleNumber=3;
-
-% reference genome (all listed in the test/suite)
-ref='MT_recon_2_2_entrez.mat';
-
-% type of thresholding method ('local' or 'global')
-param.ThreshType='local';
-% local threshold type ('minmaxmean', 'custom' or 'mean')
-param.LocalThresholdType='minmaxmean';
-
-% numerical cutoff ('value' or 'percent')
-param.percentile_or_value='value';
-% minimum cutoff (0-1000 for 'value', 0-1 'percent')
-param.value_low=25;
-% maximum cutoff (0-1000 for 'value', 0-1 'percent')
-param.value_high=75;
-
-[score, score_binary ,taskInfos, detailScoring]=CellFie(data,SampleNumber,ref,param);
-```
-### Run matlab cellfie wrapper
-
-```matlab
-execCellfie('test/suite/dataTest.mat','3','MT_recon_2_2_entrez.mat','local',
-  'value','minmaxmean','25','75','outtmp')
-execCellfie('test/suite/dataTest.csv','3','MT_recon_2_2_entrez.mat','local',
-  'value','minmaxmean','25','75','outtmp)
-```
-### Run bash wrapper for MCR compiled cellfie wrapper
-```bash
-MCR=/usr/local/MATLAB/MATLAB_Runtime/v94
-./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh $MCR 
-  test/suite/dataTest.mat 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
-./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh $MCR
-  test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
-```
+Richelle et al. What does your cell really do? Model-based assessment of mammalian cells metabolic functionalities using transcriptomic data. Manuscript submitted to Nature Methods 
