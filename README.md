@@ -1,4 +1,8 @@
-# CellFie (FOR GENE PATTERN)
+# **CellFie**: Cellular Functions InferencE
+
+![Cellfie_Logo](https://github.com/LewisLabUCSD/CellFie/blob/master/logo_with_name.png)
+
+## [A Detailed explanation of method is available on the wiki section of this repository](https://github.com/LewisLabUCSD/CellFie/wiki)
 
 ## Install
 
@@ -78,6 +82,3 @@ MCR=/usr/local/MATLAB/MATLAB_Runtime/v94
 ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh $MCR
   test/suite/dataTest.csv 3 MT_recon_2_2_entrez.mat local value minmaxmean 25 75 outtmp
 ```
-
-
-## [Explanation of method and parameters (wiki)](https://github.com/ResearchSoftwareInstitute/CellFie/wiki/Cellfie-Documentation)
