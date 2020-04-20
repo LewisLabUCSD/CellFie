@@ -1,6 +1,6 @@
 # **CellFie**: Cellular Functions InferencE
 
-![Cellfie_Logo](https://github.com/LewisLabUCSD/CellFie/blob/master/logo_with_name.png)
+![Cellfie_Logo](https://github.com/LewisLabUCSD/CellFie/blob/master/logo_with_name.png=250x250)
 
 ## [A Detailed explanation of method is available on the wiki section of this repository](https://github.com/LewisLabUCSD/CellFie/wiki)
 
