@@ -1,6 +1,6 @@
 # **CellFie**: Cellular Functions InferencE
 
-<img src="https://github.com/LewisLabUCSD/CellFie/blob/master/Images/LogoCellFie.png" width="250" height="250">
+<img src="https://github.com/LewisLabUCSD/CellFie/blob/master/Images/LogoCellFie.png" width="260" height="250">
 
  CellFie is a computational framework to quantity a cells' metabolic functions.
  
