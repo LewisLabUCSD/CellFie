@@ -20,4 +20,4 @@ We welcome any comments, bug reports, and feature requests. Please send all feed
 
 **How to cite?**
 
-Richelle et al. What does your cell really do? Model-based assessment of mammalian cells metabolic functionalities using transcriptomic data. Manuscript submitted to Nature Methods 
+Richelle et al. What does your cell really do? Model-based assessment of mammalian cells metabolic functionalities using omics data. Manuscript submitted to Nature Methods 
