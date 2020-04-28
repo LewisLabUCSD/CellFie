@@ -20,4 +20,4 @@ We welcome any comments, bug reports, and feature requests. Please send all feed
 
 **How to cite?**
 
-Richelle et al. What does your cell really do? Model-based assessment of mammalian cells metabolic functionalities using omics data. Manuscript submitted to Nature Methods 
+A. Richelle, B.P. Kellman, A.T. Wenzel, A.W.T. Chiang, T.Reagan, J.M. Gutierrez, C. Joshi, S. Li, J.K. Liu, H. Masson, J. Lee, Z. Li, L. Heirendt, C. Trefois, E.F. Juarez, T. Bath, D. Borland, J.P. Mesirov, K. Robasky, N.E. Lewis. What does your cell really do? Model-based assessment of mammalian cells metabolic functionalities using omics data. bioRxiv 2020.04.26.057943; doi: https://doi.org/10.1101/2020.04.26.057943 
