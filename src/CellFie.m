@@ -88,11 +88,6 @@ if ~exist('param','var')
     param.LocalThresholdType='minmaxmean';
     param.percentile_low=25;
     param.percentile_high=75;
-%     percentile=[];
-%     value=[];
-%     value_low=[];
-%     value_high=[];
-%     minSum = false;
 end
 
 %load the info about the task structure
@@ -103,7 +98,6 @@ taskInfos(:,5:end)=[];
 
 
 %load the reference model in matlab
-%%%% TO DO !!! DEFINE the good path to search the model
 load(ref);
 
 %% Depending on the model, load the list of reactions associated with the task
@@ -152,54 +146,26 @@ linData(linData==0)=[];
 % definition of the thresholds
 if strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'percentile')
     display('RUN - global: percentile')
-    %figure(1);hist(log10(linData),50)
     l_global = (prctile(log10(linData),param.percentile));
     data.ths=10^l_global;
-    %h_global=line([l_global,l_global],get(gca,'YLim'),'Color','c');
-    %legend(h_global,{[num2str(param.percentile),'th percentile = ',num2str(data.ths)]},'FontSize',14)
-    %xlabel('log10(expressionValue)','FontSize',14)
-    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'global') && strcmp(param.percentile_or_value,'value')
     display('RUN - global: value')
-    %figure(1);hist(log10(linData),50)
     data.ths=param.value;
-    %h_global=line([log10(param.value),log10(param.value)],get(gca,'YLim'),'Color','c');
-    %legend(h_global,{'global threshold'},'FontSize',14)
-    %xlabel('log10(expressionValue)','FontSize',14)
-    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'mean')
     display('RUN - local: mean')
-    %figure(1);hist(log10(linData),50)
-    %xlabel('log10(expressionValue)','FontSize',14)
-    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'percentile')
     display('RUN - local: minmaxmean: percentile')
-    %figure(1);hist(log10(linData),50)
     l_high = (prctile(log10(linData),param.percentile_high));
     data.ths_high=10^l_high;
     l_low = (prctile(log10(linData),param.percentile_low));
     data.ths_low=10^l_low;
-    %h_high=line([l_high,l_high],get(gca,'YLim'),'Color','c');
-    %h_low=line([l_low,l_low],get(gca,'YLim'),'Color','r');
-    %legend([h_high,h_low],{[num2str(param.percentile_high),'th percentile = ',num2str(data.ths_high)],[num2str(param.percentile_low),'th percentile = ',num2str(data.ths_low)]},'FontSize',14)
-    %xlabel('log10(expressionValue)','FontSize',14)
-    %ylabel('Genes','FontSize',14)
 elseif strcmp(param.ThreshType,'local') && strcmp(param.LocalThresholdType,'minmaxmean')&& strcmp(param.percentile_or_value,'value')
     display('RUN - local: minmaxmean: value')
-    %figure(1);hist(log10(linData),50)
     data.ths_high=param.value_high;
     data.ths_low=param.value_low;
-    %h_high=line([log10(param.value_high),log10(param.value_high)],get(gca,'YLim'),'Color','c');
-    %h_low=line([log10(param.value_low),log10(param.value_low)],get(gca,'YLim'),'Color','r');
-    %legend([h_high,h_low],{'Lower local threshold','Upper local threshold'},'FontSize',14)
-    %xlabel('log10(expressionValue)','FontSize',14)
-    %ylabel('Genes','FontSize',14)
 else
     error('No analysis triggered')
 end
-
-%% TO DO - DEFINE THE GOOD PATH TO SAVE FIGURE -
-% saveas(figure(1),'Analysis/Figures/histogram.png')
 
 %% Compute the threshold(s) depending on the approach used
 Gene_score=[];
@@ -236,7 +202,10 @@ expression.count=[];
 minSum = false;
 
 display('Load GPR parse');
-parsedGPR = GPRparser(model,minSum);% Extracting GPR data from model % Ben Kellman, 8/25/19
+%% load parsedGPR for each model
+load(strcat('parsedGPR/parsedGPR_',ref));
+%%parsedGPR = GPRparser(model,minSum);%code to compute the parsed GPR using
+%%cobratoolbox
 
 display('Mapping of the expression data to the model');
 for i=1:SampleNumber
@@ -245,13 +214,9 @@ for i=1:SampleNumber
     else
        expression.value=Gene_score(:,i);
     end
-    %[expressionRxns, parsedGPR, gene_used] =
-    %mapExpressionToReactions(model, expression, minSum); % moved gpr
-    %parsing outside of for loop $ Ben Kellman, 8/25/19
-    % moved out of forloop
     % Find wich genes in expression data are used in the model
     [gene_id, gene_expr] = findUsedGenesLevels(model,expression);
-    % Link the gene to the model reactions # NOTE: THIS IS THE TIME SINK
+    % Link the gene to the model reactions 
     [expressionRxns, gene_used] = selectGeneFromGPR(model, gene_id, gene_expr, parsedGPR, minSum);
     
     gene_all=[];
@@ -360,26 +325,6 @@ for j=1:SampleNumber
            end
         end
     end
-    %noTask=find(ScorebyTask(:,1)==-1);
     score=ScorebyTask;
     score_binary=ScorebyTask_binary;
-    %score([noTask],:) = [];
-    %score_binary([noTask],:) = [];
-    %taskInfos([noTask],:) = [];
 end
-
-% get model checking tasks
-r = readtable('input/inactive_reactions.csv','Delimiter',',');
-noTask=r.index; %find(ScorebyTask(:,1)==-1);
-% check removed tasks
-for i=1:length(noTask)
-    nti = noTask(i);
-    if taskInfos{nti,2}~=r.v1{i}
-        error('inactive reaction index does not match taskInfo')
-    end
-end
-    
-% remove model checking tasks
-score([noTask],:) = [];
-score_binary([noTask],:) = [];
-taskInfos([noTask],:) = [];
