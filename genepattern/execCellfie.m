@@ -52,8 +52,16 @@ function []=execCellfie(DATA,SAMP,REF,pTHRESH,pPERCVAL,pGLOBAL,pTYPE,pLOW,pHIGH,
 	csvwrite(strcat(outputdir,'/score.csv'),score);
 	csvwrite(strcat(outputdir,'/score_binary.csv'),score_binary);
 	T = cell2table(taskInfos);
-    D = cell2table(detailScoring);
- 	writetable(T,strcat(outputdir,'/taskInfo.csv'));
+	writetable(T,strcat(outputdir,'/taskInfo.csv'));
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
  	writetable(D,strcat(outputdir,'/detailScoring.csv'));
 
 % ./matlab_compiled/execCellfie/for_redistribution_files_only/run_execCellfie.sh \ 
