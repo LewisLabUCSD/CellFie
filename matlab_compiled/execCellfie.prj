@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="4044161664" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="1860633994" file="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie.prj" location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
@@ -18,6 +18,7 @@ We welcome any comments, bug reports, and feature requests. Please send all feed
 For issues with the GenePattern module, please contact atwenzel@eng.ucsd.edu
 
 Updates
+8/04/20 - remove cobratoolbox dependency
 3/26/2020 - added detailScores.csv output
 4/09/2020 - fixed percentile setting in line 23-25
 4/09/2020 - added explicit "global" parameter
@@ -104,18 +105,11 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
     <fileset.package />
     <fileset.depfun>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/CellFie.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/findRxnIDs.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/findUsedGenesLevels.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/prctile.m</file>
+      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/selectGeneFromGPR.m</file>
       <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/src/tabulate.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/analysis/exploration/findRxnIDs.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/GPRparser.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/findUsedGenesLevels.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/selectGeneFromGPR.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/AndNode.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/FormulaParser.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/LiteralNode.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/Node.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/OrNode.m</file>
-      <file>/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/lib/cobratoolbox/src/reconstruction/refinement/GPRLogic/combineChildren.m</file>
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="execCellfie" optional="false">/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_testing/execCellfie</file>
@@ -137,7 +131,7 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>4.15.0-65-generic</osver>
+      <osver>4.15.0-109-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>
