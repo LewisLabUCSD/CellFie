@@ -16,7 +16,17 @@ csvwrite('dataRecon22_local_minmaxmean_value.score.csv',score);
 csvwrite('dataRecon22_local_minmaxmean_value.score_binary.csv',score_binary);
 T = cell2table(taskInfos);
 writetable(T,'dataRecon22_local_minmaxmean_value.taskInfo.csv');
-
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
+        writetable(D,'dataRecon22_local_minmaxmean_value.detailScoring.csv')
+        
 %% dataRecon22_local_minmaxmean_percentile
 load('dataTest.mat')
 SampleNumber=3;
@@ -33,7 +43,16 @@ csvwrite('dataRecon22_local_minmaxmean_percentile.score.csv',score);
 csvwrite('dataRecon22_local_minmaxmean_percentile.score_binary.csv',score_binary);
 T = cell2table(taskInfos);
 writetable(T,'dataRecon22_local_minmaxmean_percentile.taskInfo.csv');
-
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
+        writetable(D,'dataRecon22_local_minmaxmean_percentile.detailScoring.csv');
 
 %% dataRecon22_local_mean
 load('dataTest.mat')
@@ -48,7 +67,16 @@ csvwrite('dataRecon22_local_mean.score.csv',score);
 csvwrite('dataRecon22_local_mean.score_binary.csv',score_binary);
 T = cell2table(taskInfos);
 writetable(T,'dataRecon22_local_mean.taskInfo.csv');
-
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
+        writetable(D,'dataRecon22_local_mean.detailScoring.csv');
 
 %% dataRecon22_global_value
 load('dataTest.mat')
@@ -64,7 +92,16 @@ csvwrite('dataRecon22_global_value.score.csv',score);
 csvwrite('dataRecon22_global_value.score_binary.csv',score_binary);
 T = cell2table(taskInfos);
 writetable(T,'dataRecon22_global_value.taskInfo.csv');
-
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
+        writetable(D,'dataRecon22_global_value.detailScoring.csv');
 
 %% dataRecon22_global_percentile
 load('dataTest.mat')
@@ -80,3 +117,16 @@ csvwrite('dataRecon22_global_percentile.score.csv',score);
 csvwrite('dataRecon22_global_percentile.score_binary.csv',score_binary);
 T = cell2table(taskInfos);
 writetable(T,'dataRecon22_global_percentile.taskInfo.csv');
+
+	Var={};
+	    for i=1:SampleNumber
+		Var=[Var strcat('SampleID_S',num2str(i)) strcat('TaskID_S',num2str(i)) strcat('TaskScore_S',num2str(i))...
+		strcat('BinaryTaskScore_S',num2str(i)) strcat('EssentialRxnsTask_S',num2str(i))...
+		strcat('ExpressionScoreEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneAssociatedToEssentialRxnsTask_S',num2str(i))...
+		strcat('GeneExpressionValue_S',num2str(i))];
+	    end
+     	D = cell2table(detailScoring,'VariableNames',Var);
+        writetable(D,'dataRecon22_global_percentile.detailScoring.csv');
+
+
