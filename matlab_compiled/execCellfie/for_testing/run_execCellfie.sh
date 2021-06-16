@@ -14,11 +14,12 @@ else
   echo Setting up environment variables
   MCRROOT="$1"
   echo ---
-  DYLD_LIBRARY_PATH=.:${MCRROOT}/runtime/maci64 ;
-  DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${MCRROOT}/bin/maci64 ;
-  DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${MCRROOT}/sys/os/maci64;
-  export DYLD_LIBRARY_PATH;
-  echo DYLD_LIBRARY_PATH is ${DYLD_LIBRARY_PATH};
+  LD_LIBRARY_PATH=.:${MCRROOT}/runtime/glnxa64 ;
+  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MCRROOT}/bin/glnxa64 ;
+  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MCRROOT}/sys/os/glnxa64;
+  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MCRROOT}/sys/opengl/lib/glnxa64;
+  export LD_LIBRARY_PATH;
+  echo LD_LIBRARY_PATH is ${LD_LIBRARY_PATH};
   shift 1
   args=
   while [ $# -gt 0 ]; do
@@ -26,7 +27,7 @@ else
       args="${args} \"${token}\"" 
       shift
   done
-  eval "\"${exe_dir}/execCellfie.app/Contents/MacOS/execCellfie\"" $args
+  eval "\"${exe_dir}/execCellfie\"" $args
 fi
 exit
 
