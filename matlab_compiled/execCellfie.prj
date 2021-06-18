@@ -1,43 +1,34 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1860633994" file="/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled/execCellfie.prj" location="/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled" name="execCellfie" preferred-package-location="/media/ben/9c17f1c9-a45e-49ec-b547-8fbd2f25ccc6/CellFie/matlab_compiled/execCellfie/for_redistribution" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration file="/home/alex/Documents/CellFie/matlab_compiled/execCellfie.prj" location="/home/alex/Documents/CellFie/matlab_compiled" name="execCellfie" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>execCellfie</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>0.7</param.version>
-    <param.authnamewatermark>Richelle, Kellman</param.authnamewatermark>
-    <param.email>bkellman@eng.ucsd.edu</param.email>
+    <param.version>1.0</param.version>
+    <param.authnamewatermark />
+    <param.email />
     <param.company />
-    <param.summary>An alternative approach to capture the breadth of cellular functions by performing a functional analysis of existing biological networks.</param.summary>
-    <param.description>CellFie: Cellular Functions InferencE
-
-
-An alternative approach for the interpretation of omics data (e.g., differentially expressed genes) that captures the simplicity of enrichment analyses, while providing deeper mechanistic insights into how differential expression impacts specific cellular functions. This approach enables the investigation of hundreds of metabolic tasks curated from literature covering 7 major metabolic activities of a cell (energy generation, nucleotide, carbohydrate, amino acid, lipid, vitamin &amp; cofactor and glycan metabolism) and 4 mammalian organisms (human, rat, mouse and CHO cells). This platform can be used to predict the activity of these metabolic functions from transcriptomic data to comprehensively quantify the propensity of a cell line or tissue to express a metabolic function.
-
-We welcome any comments, bug reports, and feature requests. Please send all feedback to arichelleres@gmail.com
-
-For issues with the GenePattern module, please contact atwenzel@eng.ucsd.edu
-
-Updates
-8/04/20 - remove cobratoolbox dependency
-3/26/2020 - added detailScores.csv output
-4/09/2020 - fixed percentile setting in line 23-25
-4/09/2020 - added explicit "global" parameter
-4/19/2020 - fixed execCellfie parameter bug</param.description>
+    <param.summary />
+    <param.description />
     <param.screenshot />
     <param.guid />
     <param.installpath.string>/execCellfie/</param.installpath.string>
-    <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
+    <param.installpath.combo>option.installpath.user</param.installpath.combo>
     <param.logo />
     <param.install.notes />
-    <param.target.install.notes>In the following directions, replace MR/v95 by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
+    <param.target.install.notes>In the following directions, replace MR/v94 by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
 
-If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the following string:
+(1) Set the environment variable XAPPLRESDIR to this value:
 
-MR/v95/runtime/maci64:MR/v95/sys/os/maci64:MR/v95/bin/maci64
+MR/v94/X11/app-defaults
+
+
+(2) If the environment variable LD_LIBRARY_PATH is undefined, set it to the following:
+
+MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa64:MR/v94/sys/opengl/lib/glnxa64
 
 If it is defined, set it to the following:
 
-${DYLD_LIBRARY_PATH}:MR/v95/runtime/maci64:MR/v95/sys/os/maci64:MR/v95/bin/maci64</param.target.install.notes>
+${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa64:MR/v94/sys/opengl/lib/glnxa64</param.target.install.notes>
     <param.intermediate>${PROJECT_ROOT}/execCellfie/for_testing</param.intermediate>
     <param.files.only>${PROJECT_ROOT}/execCellfie/for_redistribution_files_only</param.files.only>
     <param.output>${PROJECT_ROOT}/execCellfie/for_redistribution</param.output>
@@ -62,7 +53,12 @@ ${DYLD_LIBRARY_PATH}:MR/v95/runtime/maci64:MR/v95/sys/os/maci64:MR/v95/bin/maci6
     <unset>
       <param.icon />
       <param.icons />
+      <param.version />
+      <param.authnamewatermark />
+      <param.email />
       <param.company />
+      <param.summary />
+      <param.description />
       <param.screenshot />
       <param.guid />
       <param.installpath.string />
@@ -92,77 +88,45 @@ ${DYLD_LIBRARY_PATH}:MR/v95/runtime/maci64:MR/v95/sys/os/maci64:MR/v95/bin/maci6
       <param.help.text />
     </unset>
     <fileset.main>
-      <file>/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/genepattern/execCellfie.m</file>
+      <file>/home/alex/Documents/CellFie/genepattern/execCellfie.m</file>
     </fileset.main>
     <fileset.resources>
-      <file>/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/input</file>
+      <file>/home/alex/Documents/CellFie/input</file>
+      <file>/home/alex/Documents/CellFie/src/CellFie.m</file>
+      <file>/home/alex/Documents/CellFie/src/findRxnIDs.m</file>
+      <file>/home/alex/Documents/CellFie/src/findUsedGenesLevels.m</file>
+      <file>/home/alex/Documents/CellFie/src/prctile.m</file>
+      <file>/home/alex/Documents/CellFie/src/runCellFie.m</file>
+      <file>/home/alex/Documents/CellFie/src/selectGeneFromGPR.m</file>
+      <file>/home/alex/Documents/CellFie/src/tabulate.m</file>
+      <file>/home/alex/Documents/CellFie/src/wide2long.m</file>
     </fileset.resources>
     <fileset.package />
-    <fileset.depfun>
-      <file>/Users/helenmasson/Dropbox/LewisLab/dev_CellFie/NewCellFie_May29/src/CellFie.m</file>
-      <file>/Users/helenmasson/Dropbox/LewisLab/dev_CellFie/NewCellFie_May29/src/prctile.m</file>
-      <file>/Users/helenmasson/Dropbox/LewisLab/dev_CellFie/NewCellFie_May29/src/tabulate.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/analysis/exploration/findRxnIDs.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/GPRparser.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/findUsedGenesLevels.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/mapExpressionToReactions.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/dataIntegration/transcriptomics/preprocessing/selectGeneFromGPR.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/AndNode.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/FormulaParser.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/LiteralNode.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/Node.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/OrNode.m</file>
-      <file>/Users/helenmasson/cobratoolbox/src/reconstruction/refinement/GPRLogic/combineChildren.m</file>
-    </fileset.depfun>
+    <fileset.depfun />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="run_execCellfie.sh" optional="false">/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled/execCellfie/for_testing/run_execCellfie.sh</file>
-      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="readme.txt" optional="true">/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled/execCellfie/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="splash.png" optional="false">/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled/execCellfie/for_testing/splash.png</file>
-      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="execCellfie.app" optional="false">/Users/helenmasson/Desktop/SenateExam/Aim2_CellFie/Final_compiledCellFIE/CellFie/matlab_compiled/execCellfie/for_testing/execCellfie.app</file>
+      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="readme.txt" optional="true">/home/alex/Documents/CellFie/matlab_compiled/execCellfie/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="run_execCellfie.sh" optional="false">/home/alex/Documents/CellFie/matlab_compiled/execCellfie/for_testing/run_execCellfie.sh</file>
+      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="execCellfie" optional="false">/home/alex/Documents/CellFie/matlab_compiled/execCellfie/for_testing/execCellfie</file>
+      <file location="${PROJECT_ROOT}/execCellfie/for_testing" name="splash.png" optional="false">/home/alex/Documents/CellFie/matlab_compiled/execCellfie/for_testing/splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2018b.app</root>
-      <toolboxes>
-        <toolbox name="matlabcoder" />
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabhdlcoder" />
-        <toolbox name="neuralnetwork" />
-      </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
-      <toolbox>
-        <neuralnetwork>
-          <enabled>true</enabled>
-        </neuralnetwork>
-      </toolbox>
+      <root>/usr/local/MATLAB/R2018a</root>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>true</unix>
-      <mac>true</mac>
+      <mac>false</mac>
       <windows>false</windows>
       <win2k>false</win2k>
       <winxp>false</winxp>
       <vista>false</vista>
-      <linux>false</linux>
+      <linux>true</linux>
       <solaris>false</solaris>
-      <osver>10.15.7</osver>
+      <osver>5.8.0-55-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
-      <arch>maci64</arch>
+      <arch>glnxa64</arch>
       <matlab>true</matlab>
     </platform>
   </configuration>
