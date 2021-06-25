@@ -6,7 +6,7 @@
  
  
  
- This framework is available as a web-based module in the list of tools of [GenePattern](www.genepattern.org). See [here](https://github.com/LewisLabUCSD/CellFie/wiki/Tutorial-:-GenePattern-module) information about the GenePattern module
+ This framework is available as a web-based module in the list of tools of [GenePattern](https://www.genepattern.org). See [here](https://github.com/LewisLabUCSD/CellFie/wiki/Tutorial-:-GenePattern-module) information about the GenePattern module
  
  The [source code](https://github.com/LewisLabUCSD/CellFie/blob/master/src/CellFie.m) is running on Matlab. See [here](https://github.com/LewisLabUCSD/CellFie/wiki/Running-CellFie-in-Matlab) information about how to run Cellfie using Matlab
  
