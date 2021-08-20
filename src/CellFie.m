@@ -312,14 +312,14 @@ for j=1:SampleNumber
                     detailScoring{incR,((j-1)*8)+5}=rxns(k);
                     %6th column = expression score associated  to the
                     %reaction listed in the 5th column
-                    detailScoring{incR,((j-1)*8)+6}=expression.Rxns(rxnID(k),SampleNumber);
+                    detailScoring{incR,((j-1)*8)+6}=expression.Rxns(rxnID(k),j);
                     %7th column = gene used to determine the expression of the
                     %reaction listed in the 5th column
-                    geneName=expression.gene_used(rxnID(k),SampleNumber);
+                    geneName=expression.gene_used(rxnID(k),j);
                     detailScoring{incR,((j-1)*8)+7}=geneName;
                     %8th column = original expression value of the gene
                     %listed in the 7th column
-                    detailScoring{incR,((j-1)*8)+8}=data.value(strcmp(data.gene,geneName),SampleNumber);
+                    detailScoring{incR,((j-1)*8)+8}=data.value(find(strcmp(data.gene,geneName{1})),j);
                     incR=incR+1;
                 end
            end
