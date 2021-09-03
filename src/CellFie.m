@@ -90,6 +90,9 @@ if ~exist('param','var')
     param.percentile_high=75;
 end
 
+f = waitbar(0,'Please wait...');
+waitbar(.15,f,'Loading your data');
+
 %load the info about the task structure
 load('taskStructure')
 taskInfos=struct2cell(taskStructure);
@@ -201,13 +204,13 @@ expression.gene_used=[];
 expression.count=[];
 minSum = false;
 
-display('Load GPR parse');
+waitbar(.25,f,'Load GPR parse');
 %% load parsedGPR for each model
 load(strcat('parsedGPR/parsedGPR_',ref));
 %%parsedGPR = GPRparser(model,minSum);%code to compute the parsed GPR using
 %%cobratoolbox
 
-display('Mapping of the expression data to the model');
+waitbar(.45,f,'Mapping of the expression data to the model');
 for i=1:SampleNumber
     if SampleNumber==1
         expression.value=Gene_score;
@@ -246,7 +249,7 @@ significance=1./expression.count;
 significance(isinf(significance))=0;
 ScorebyTask=[];
 ScorebyTask_binary=[];
-display('Compute the task activity score');
+waitbar(.75,f,'Compute the task activity score');
 for i=1:size(taskInfos,1)
 	if ~isempty(essentialRxns{i})
     	rxns=essentialRxns{i};
@@ -289,7 +292,7 @@ for i=1:size(taskInfos,1)
 end
 
 detailScoring={};
-display('Format the score')
+waitbar(1,f,'Format the score');
 for j=1:SampleNumber
     incR=1;
     for i=1:size(taskInfos,1)
@@ -328,3 +331,4 @@ for j=1:SampleNumber
     score=ScorebyTask;
     score_binary=ScorebyTask_binary;
 end
+close(f)
